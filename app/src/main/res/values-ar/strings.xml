@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ensumble</string>
+
+
+    <array name="nav_drawables_list">
+        <item name="home_img">@drawable/ic_home</item>
+        <item name="language_img">@drawable/ic_language</item>
+    </array>
+
+    <string-array name="navigation_menu_items">
+        <item name="home">الرئيسية</item>
+        <item name="language">English</item>
+    </string-array>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+</resources>
