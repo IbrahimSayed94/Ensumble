@@ -20,4 +20,31 @@
     <string name="sale">عرض</string>
     <string name="featured">مميز</string>
 
+    <string name="in_stock">فى المخزن</string>
+    <string name="price">السعر</string>
+    <string name="product_title">عنوان المنتج</string>
+    <string name="category">الفئه</string>
+    <string name="reviews_ratings">متابعة كضيف</string>
+    <string name="quantity">الكميه</string>
+    <string name="total_price">السعر الكلى</string>
+    <string name="view_store">عرض المتجر</string>
+
+    <string name="apply"> تطبيق </string>
+    <string name="coupon_code"> رمز القسيمة </string>
+    <string name="sample_coupons"> عينة رموز القسيمة </string>
+
+    <string name="product_price"> سعر المنتج </string>
+    <string name="subtotal"> حاصل الجمع </string>
+    <string name="checkout"> الدفع </string>
+    <string name="view">عرض</string>
+    <string name="email_address">عنوان البريد الالكترونى</string>
+    <string name="first_name">الاسم الاول</string>
+    <string name="last_name">الكنيه</string>
+    <string name="new_password">كلمه المرور الجديده</string>
+
+    <string name="Featured">متميز</string>
+    <string name="Sale">تخفيضات</string>
+    <string name="seller_name">اسم البائع</string>
+    <string name="save_changes">حفظ التغييرات</string>
+    <string name="username">اسم المستخدم</string>
 </resources>
