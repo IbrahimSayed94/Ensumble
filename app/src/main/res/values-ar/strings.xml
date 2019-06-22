@@ -15,4 +15,9 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="addToCart">أضف إلى العربة</string>
+    <string name="sale">عرض</string>
+    <string name="featured">مميز</string>
+
 </resources>

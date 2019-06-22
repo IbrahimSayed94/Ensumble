@@ -14,4 +14,8 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="addToCart">Add to cart</string>
+    <string name="sale">Sale</string>
+    <string name="featured">Featured</string>
 </resources>

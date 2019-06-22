@@ -1,14 +1,16 @@
 package com.ensumble.view.activity;
 
-import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.NavigationView;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
+import com.ensumble.AppConfig.MyContextWrapper;
+import com.google.android.material.navigation.NavigationView;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
-import android.widget.TextView;
 
 import com.ensumble.AppConfig.CustomToolBar;
 import com.ensumble.R;
@@ -17,6 +19,7 @@ import com.ensumble.view.fragment.HomeFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -68,5 +71,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView_navMenu.setHasFixedSize(true);
         recyclerView_navMenu.setAdapter(adapter);
     } // function of setUpNavMenu
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        SharedPreferences sharedPreferences = newBase.getSharedPreferences("user",MODE_PRIVATE);
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(new MyContextWrapper(newBase).wrap(sharedPreferences.getString("language","ar"))));
+    }// apply fonts
+
 
 } // class of MainActivity
