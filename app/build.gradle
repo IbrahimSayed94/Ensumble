@@ -83,4 +83,8 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.preference:preference:1.0.0'
     implementation 'androidx.legacy:legacy-preference-v14:1.0.0'
+
+    implementation 'com.android.support:support-v4:28.0.0'
+    //rating bar
+    implementation 'hyogeun.github.com.colorratingbar:ColorRatingBar:1.0.1'
 }
