@@ -31,7 +31,7 @@
                     android:src="@drawable/icons_stripe"
                     android:tint="@color/iconsLight"/>
 
-                <com.vectorcoder.androidwoocommerce.customs.CircularImageView
+                <!--<com.vectorcoder.androidwoocommerce.customs.CircularImageView
                     android:id="@+id/user_photo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -39,7 +39,7 @@
                     android:src="@drawable/profile"
                     app:border_color="@color/white"
                     app:border_overlay="true"
-                    app:border_width="2dp"/>
+                    app:border_width="2dp"/>-->
 
                 <android.support.design.widget.FloatingActionButton
                     android:id="@+id/user_photo_edit_fab"

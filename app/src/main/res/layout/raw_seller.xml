@@ -24,7 +24,7 @@
             android:clickable="true"
             android:scaleType="fitCenter"
             android:layout_alignParentStart="true"
-            android:background="@color/windowBackground" />
+            android:background="@color/white" />
 
 
         <RelativeLayout
@@ -177,7 +177,16 @@
 
             </LinearLayout>
 
+
+
         </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/dividerLight"
+            android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
 

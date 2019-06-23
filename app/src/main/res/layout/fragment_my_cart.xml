@@ -88,7 +88,7 @@
                             android:layout_marginStart="8dp"
                             android:layout_centerVertical="true"
                             android:layout_alignParentEnd="true"
-                            android:background="@drawable/rounded_corners_button_green" />
+                            android:background="@drawable/rounded_corners_button_orange" />
 
                         <EditText
                             android:id="@+id/cart_coupon_code"
@@ -152,7 +152,7 @@
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textAlignment="textStart"
-                    android:textColor="@color/colorAccentGreen"
+                    android:textColor="@color/colorAccentOrange"
                     android:padding="5dp"
                     android:gravity="start"
                     android:layout_centerVertical="true"
@@ -170,7 +170,7 @@
                     android:layout_marginEnd="5dp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
-                    android:background="@drawable/rounded_corners_button_green" />
+                    android:background="@drawable/rounded_corners_button_orange" />
 
             </RelativeLayout>
 

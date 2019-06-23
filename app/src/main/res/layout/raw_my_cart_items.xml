@@ -128,7 +128,7 @@
                         android:src="@drawable/ic_chevron_left"
                         android:scaleType="centerInside"
                         android:tint="@color/white"
-                        android:background="@drawable/rounded_corners_button_green" />
+                        android:background="@drawable/rounded_corners_button_orange" />
 
                     <TextView
                         android:id="@+id/cart_item_quantity"
@@ -146,7 +146,7 @@
                         android:src="@drawable/ic_chevron_right"
                         android:scaleType="centerInside"
                         android:tint="@color/white"
-                        android:background="@drawable/rounded_corners_button_green" />
+                        android:background="@drawable/rounded_corners_button_orange" />
 
                 </LinearLayout>
 
