@@ -95,7 +95,7 @@ public class TabHomeFragment extends Fragment
 
     private void getProducts()
     {
-    Log.e("QP","categoryId : "+categoryId);
+    Log.e("QP","categoryId : "+categoryId +" : "+PrefUser.getUserId(getContext()));
         progress = new CustomDialogProgress();
         progress.init(getContext());
         handler = new Handler() {
