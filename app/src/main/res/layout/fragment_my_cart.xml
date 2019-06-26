@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.MyCart">
+    >
 
     <!--<LinearLayout
         android:id="@+id/cart_view_empty"
@@ -52,18 +52,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/cart_items_recycler"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginBottom="5dp"></androidx.recyclerview.widget.RecyclerView>
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_8sdp"
+                android:layout_marginStart="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_3sdp"></androidx.recyclerview.widget.RecyclerView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginBottom="5dp"
+                android:layout_marginTop="@dimen/_3sdp"
+                android:layout_marginEnd="@dimen/_13sdp"
+                android:layout_marginStart="@dimen/_13sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
                 android:background="@color/white">
 
                 <LinearLayout
@@ -73,19 +73,19 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="10dp">
+                        android:layout_marginTop="@dimen/_13sdp"
+                        android:layout_marginStart="@dimen/_13sdp"
+                        android:layout_marginEnd="@dimen/_13sdp"
+                        android:layout_marginBottom="@dimen/_8sdp">
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:layout_width="wrap_content"
-                            android:layout_height="35dp"
+                            android:layout_height="@dimen/_33sdp"
                             android:id="@+id/cart_coupon_btn"
                             android:text="@string/apply"
                             android:textColor="@color/white"
                             android:textAllCaps="false"
-                            android:layout_marginStart="8dp"
+                            android:layout_marginStart="@dimen/_6sdp"
                             android:layout_centerVertical="true"
                             android:layout_alignParentEnd="true"
                             android:background="@drawable/rounded_corners_button_orange" />
@@ -93,12 +93,12 @@
                         <EditText
                             android:id="@+id/cart_coupon_code"
                             android:layout_width="match_parent"
-                            android:layout_height="35dp"
+                            android:layout_height="@dimen/_33sdp"
                             android:hint="@string/coupon_code"
                             android:inputType="textNoSuggestions"
-                            android:textSize="14sp"
+                            android:textSize="@dimen/_12sdp"
                             android:textColor="@color/textColorSecondaryDark"
-                            android:padding="5dp"
+                            android:padding="@dimen/_3sdp"
                             android:background="@color/windowBackground"
                             android:layout_centerVertical="true"
                             android:layout_toStartOf="@+id/cart_coupon_btn" />
@@ -110,11 +110,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/sample_coupons"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/_12sdp"
                         android:textStyle="italic"
                         android:clickable="true"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginBottom="5dp"
+                        android:layout_marginStart="@dimen/_13sdp"
+                        android:layout_marginBottom="@dimen/_3sdp"
                         android:visibility="visible"
                         android:textColor="@color/colorAccentDark" />
 
@@ -141,7 +141,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:padding="@dimen/_8sdp"
                 android:background="@color/white">
 
                 <TextView
@@ -149,11 +149,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/total_price"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/_16sdp"
                     android:textStyle="bold"
                     android:textAlignment="textStart"
                     android:textColor="@color/colorAccentOrange"
-                    android:padding="5dp"
+                    android:padding="@dimen/_3sdp"
                     android:gravity="start"
                     android:layout_centerVertical="true"
                     android:layout_alignParentStart="true"/>
@@ -161,13 +161,13 @@
                 <Button
                     android:id="@+id/cart_checkout_btn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/_33sdp"
                     android:text="@string/checkout"
                     android:textAllCaps="false"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/_14sdp"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginEnd="@dimen/_3sdp"
                     android:layout_centerVertical="true"
                     android:layout_alignParentEnd="true"
                     android:background="@drawable/rounded_corners_button_orange" />

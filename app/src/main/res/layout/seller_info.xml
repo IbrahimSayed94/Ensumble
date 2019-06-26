@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/colorAccentGrey">
+
+<!--
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/_20sdp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/seller_photo"
+                    android:layout_width="@dimen/_96sdp"
+                    android:layout_height="@dimen/_96sdp"
+                    android:src="@drawable/asser"
+                    app:border_width="@dimen/_2sdp"
+                    app:border_overlay="true"
+                    app:border_color="@color/white" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/seller_name"
+                    android:id="@+id/seller_name"
+                    android:textSize="@dimen/_18sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textColor="@color/white" />
+
+
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginStart="@dimen/_4sdp"
+                card_view:cardElevation="@dimen/_5sdp"
+                card_view:cardCornerRadius="@dimen/_3sdp"
+                card_view:cardUseCompatPadding="true"
+                card_view:cardPreventCornerOverlap="false"
+                >
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp">
+                        <hyogeun.github.com.colorratingbarlib.ColorRatingBar
+                            android:id="@+id/product_rating_bar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:rating="2.4"
+                            android:stepSize="0.1"
+                            app:changeable="false"
+                            android:paddingTop="@dimen/_2sdp"
+                            style="?android:attr/ratingBarStyleSmall"
+                            app:empty_color="@color/cardview_dark_background"
+                            app:progress_color="@android:color/holo_orange_light"
+                            android:layout_alignParentStart="true"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="20"
+                            android:textSize="@dimen/_16sdp"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/_5sdp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/category"
+                            android:textSize="@dimen/_16sdp"
+                            android:textColor="@color/colorAccent"
+                            android:layout_alignParentStart="true"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:maxLines="1"
+                            android:text="Catogries"
+                            android:layout_alignParentEnd="true"
+                            android:textSize="@dimen/_14sdp"/>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/address"
+                        android:textSize="@dimen/_16sdp"
+                        android:textColor="@color/colorAccent"
+                        android:layout_margin="@dimen/_5sdp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="adad dasdasd dasdasd asdaskdjalk dashdasjdhkaj "
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textSize="@dimen/_14sdp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/phone"
+                        android:textSize="@dimen/_16sdp"
+                        android:textColor="@color/colorAccent"
+                        android:layout_margin="@dimen/_5sdp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="01011154698"
+                        android:textSize="@dimen/_14sdp"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        />
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_4sdp"
+                android:layout_marginEnd="@dimen/_4sdp"
+                card_view:cardElevation="@dimen/_5sdp"
+                card_view:cardCornerRadius="@dimen/_3sdp"
+                card_view:cardUseCompatPadding="true"
+                card_view:cardPreventCornerOverlap="false">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_10sdp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/links"
+                        android:textSize="@dimen/_16sdp"
+                        android:textColor="@color/colorAccent"
+                        />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center">
+
+                        <androidx.appcompat.widget.AppCompatImageButton
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="@dimen/_50sdp"
+                            android:src="@drawable/facebook_icon"
+                            android:background="@color/white" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+-->
+
+
+
+</RelativeLayout>

@@ -66,6 +66,12 @@
 
     <string name="pleaseWait">Please Wait</string>
     <string name="api_failure_message">Something went wrong, please try again</string>
+    <string name="mobileNumber">Mobile number</string>
+    <string name="address">Address</string>
+    <string name="completeFields">Complete fields</string>
+    <string name="userRegisterdBefore">User registerd before</string>
+    <string name="successfullyDone">Successfully done</string>
+    <string name="mobileOrPasswordWrong">Mobile or password wrong</string>
 
 
 </resources>

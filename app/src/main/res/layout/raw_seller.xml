@@ -5,20 +5,20 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    card_view:cardElevation="2dp"
+    card_view:cardElevation="@dimen/_2sdp"
     card_view:cardCornerRadius="0dp"
     card_view:cardUseCompatPadding="true"
     card_view:cardPreventCornerOverlap="false">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="@dimen/_110sdp"
         android:background="@color/white" >
 
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/product_cover"
-            android:layout_width="110dp"
+            android:layout_width="@dimen/_110sdp"
             android:layout_height="match_parent"
             android:src="@drawable/asser"
             android:clickable="true"
@@ -30,8 +30,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginStart="15dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
             android:layout_toEndOf="@+id/product_cover" >
 
             <TextView
@@ -39,10 +39,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
-                android:textSize="14sp"
+                android:textSize="@dimen/_14sdp"
                 android:textAlignment="viewStart"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
                 android:layout_alignParentTop="true"
                 android:textColor="@color/textColorSecondaryDark" />
 
@@ -50,17 +50,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_alignParentBottom="true">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="25dp">
+                    android:layout_height="@dimen/_25sdp">
 
                     <ToggleButton
                         android:id="@+id/product_like_btn"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="@dimen/_25sdp"
+                        android:layout_height="@dimen/_25sdp"
                         android:textOff=""
                         android:textOn=""
                         android:visibility="gone"
@@ -76,7 +76,7 @@
                         android:layout_centerVertical="true"
                         android:text="@string/seller_name"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_16sdp"
                         android:layout_toStartOf="@+id/product_like_btn"/>
 
                 </RelativeLayout>
@@ -84,10 +84,10 @@
                 <TextView
                     android:id="@+id/product_card_Btn"
                     android:layout_width="wrap_content"
-                    android:layout_height="@dimen/lg_card_btn_height"
+                    android:layout_height="wrap_content"
                     android:text="@string/category"
                     android:textAllCaps="true"
-                    android:textSize="@dimen/lg_card_btn_text"
+                    android:textSize="@dimen/_14sdp"
                     android:layout_marginTop="5dp"
                     />
 
@@ -98,7 +98,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentStart="true"
-                android:layout_marginTop="20dp">
+                android:layout_marginTop="@dimen/_20sdp">
 
                 <hyogeun.github.com.colorratingbarlib.ColorRatingBar
                     android:id="@+id/product_rating_bar"
@@ -108,7 +108,7 @@
                     android:rating="0"
                     android:stepSize="0.1"
                     app:changeable="false"
-                    android:paddingTop="2dp"
+                    android:paddingTop="@dimen/_2sdp"
                     style="?android:attr/ratingBarStyleSmall"
                     app:empty_color="@color/colorAccentGrey"
                     app:progress_color="@android:color/holo_orange_light" />
@@ -125,7 +125,7 @@
 
             <ProgressBar
                 android:id="@+id/product_cover_loader"
-                android:layout_width="100dp"
+                android:layout_width="@dimen/_100sdp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="start|center_vertical"
                 android:indeterminateTintMode="src_in"
@@ -133,8 +133,8 @@
 
             <ImageView
                 android:id="@+id/product_tag_new"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="@dimen/_40sdp"
+                android:layout_height="@dimen/_40sdp"
                 android:src="@drawable/ic_new_tag_ltr"
                 android:layout_gravity="start"/>
 
@@ -149,14 +149,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Sale"
-                    android:textSize="11sp"
+                    android:textSize="@dimen/_11sdp"
                     android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:paddingTop="1dp"
-                    android:paddingEnd="3dp"
-                    android:paddingStart="3dp"
-                    android:paddingBottom="1dp"
-                    android:layout_marginBottom="3dp"
+                    android:paddingTop="@dimen/_1sdp"
+                    android:paddingEnd="@dimen/_3sdp"
+                    android:paddingStart="@dimen/_3sdp"
+                    android:paddingBottom="@dimen/_1sdp"
+                    android:layout_marginBottom="@dimen/_3sdp"
                     android:layout_gravity="end"
                     android:background="@color/colorAccentBlue" />
 
@@ -165,13 +165,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Featured"
-                    android:textSize="11sp"
+                    android:textSize="@dimen/_11sdp"
                     android:textStyle="bold"
                     android:textColor="@color/white"
-                    android:paddingTop="1dp"
-                    android:paddingEnd="3dp"
-                    android:paddingStart="3dp"
-                    android:paddingBottom="1dp"
+                    android:paddingTop="@dimen/_1sdp"
+                    android:paddingEnd="@dimen/_3sdp"
+                    android:paddingStart="@dimen/_3sdp"
+                    android:paddingBottom="@dimen/_1sdp"
                     android:layout_gravity="end"
                     android:background="@color/colorAccentBlue" />
 
@@ -183,8 +183,8 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="1dp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_1sdp"
             android:background="@color/dividerLight"
             android:layout_alignParentBottom="true"/>
 

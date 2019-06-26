@@ -10,8 +10,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.ProductDetailsActivity"></activity>
-        <activity android:name=".view.activity.MainActivity">
+        <activity android:name=".view.activity.LoginActivity"
+            android:screenOrientation="portrait"
+            ></activity>
+        <activity android:name=".view.activity.MainActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".view.activity.SignupActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".view.activity.ProductDetailsActivity"
+            android:screenOrientation="portrait"
+            />
+        <activity android:name=".view.activity.SplachActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
