@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scrollbars="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Header -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_35sdp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/seller_photo"
+                        android:layout_width="@dimen/_96sdp"
+                        android:layout_height="@dimen/_96sdp"
+                        android:src="@drawable/asser"
+                        app:border_width="@dimen/_2sdp"
+                        app:border_overlay="true"
+                        app:border_color="@color/white" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/seller_name"
+                        android:id="@+id/seller_name"
+                        android:textSize="@dimen/_16sdp"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="@color/white" />
+
+                    <hyogeun.github.com.colorratingbarlib.ColorRatingBar
+                        android:id="@+id/product_rating_bar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:numStars="5"
+                        android:rating="0"
+                        android:stepSize="0.1"
+                        app:changeable="false"
+                        android:paddingTop="@dimen/_2sdp"
+                        style="?android:attr/ratingBarStyleSmall"
+                        app:empty_color="@color/white"
+                        app:progress_color="@android:color/holo_orange_light" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginTop="@dimen/_5sdp">
+                        <Button
+                            android:id="@+id/product_cart_btn"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_weight="1"
+                            android:text="@string/more_info"
+                            android:textAllCaps="true"
+                            android:textSize="@dimen/_14sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:textColor="@color/colorAccent"
+                            android:background="@drawable/round_corner_button_white"
+                            android:layout_marginEnd="@dimen/_5sdp"/>
+
+                        <Button
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:textColor="@color/colorAccent"
+                            android:textAllCaps="true"
+                            android:layout_weight="1"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:text="@string/deliver"
+                            android:textSize="@dimen/_14sdp"
+                            android:background="@drawable/round_corner_button_white"
+                            android:layout_marginStart="@dimen/_5sdp"/>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/related_products_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_10sdp" />
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/loading_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTintMode="src_in"
+        android:indeterminateTint="@color/colorPrimaryLight" />
+
+    <ProgressBar
+        android:id="@+id/loading_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/_10sdp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:indeterminateTintMode="src_in"
+        android:indeterminateTint="@color/colorPrimaryLight" />
+
+
+</RelativeLayout>

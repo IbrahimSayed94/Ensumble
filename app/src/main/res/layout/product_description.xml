@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:custom="http://schemas.android.com/tools"
-    tools:context=".view.activity.ProductDescription">
+    >
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -31,7 +31,7 @@
                 <com.daimajia.slider.library.SliderLayout
                     android:id="@+id/slider"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_height="@dimen/_270sdp"
                     custom:auto_cycle="true"
                     android:background="@color/windowBackground"
                     custom:indicator_visibility="visible"
@@ -40,7 +40,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
+                    android:layout_height="@dimen/_1sdp"
                     android:layout_below="@+id/slider"
                     android:background="@color/dividerLight"/>
 
@@ -48,8 +48,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginTop="15dp"
-                    android:padding="5dp"
+                    android:layout_marginTop="@dimen/_13sdp"
+                    android:padding="@dimen/_3sdp"
                     android:layout_alignParentEnd="true"
                     android:background="@color/white">
 
@@ -60,18 +60,18 @@
                         android:scaleType="fitXY"
                         android:src="@drawable/ic_share"
                         android:tint="@color/colorAccentBlue"
-                        android:layout_marginEnd="5dp"
+                        android:layout_marginEnd="@dimen/_3sdp"
                         android:layout_gravity="center_vertical"
                         android:background="@android:color/transparent" />
 
                     <ToggleButton
                         android:id="@+id/product_like_btn"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                        android:layout_width="@dimen/_23sdp"
+                        android:layout_height="@dimen/_23sdp"
                         android:textOff=""
                         android:textOn=""
-                        android:layout_marginEnd="5dp"
-                        android:layout_marginStart="5dp"
+                        android:layout_marginEnd="@dimen/_3sdp"
+                        android:layout_marginStart="@dimen/_3sdp"
                         android:layout_gravity="center_vertical"
                         android:background="@drawable/toggle_ic_favorite" />
                 </LinearLayout>
@@ -82,24 +82,24 @@
                     android:layout_height="wrap_content"
                     android:maxLines="1"
                     android:text="@string/sale"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/_12sdp"
                     android:textColor="@color/white"
                     android:textAlignment="viewStart"
-                    android:paddingEnd="8dp"
-                    android:paddingStart="8dp"
+                    android:paddingEnd="@dimen/_6sdp"
+                    android:paddingStart="@dimen/_6sdp"
                     android:paddingTop="2dp"
                     android:paddingBottom="2dp"
-                    android:layout_marginStart="20dp"
+                    android:layout_marginStart="@dimen/_18sdp"
                     android:layout_marginBottom="-12dp"
                     android:background="@color/colorAccentBlue"
                     android:layout_alignBottom="@+id/slider" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:paddingEnd="20dp"
-                    android:paddingStart="20dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_height="@dimen/_36sdp"
+                    android:paddingEnd="@dimen/_17sdp"
+                    android:paddingStart="@dimen/_17sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     android:layout_below="@+id/slider">
 
                     <TextView
@@ -109,7 +109,7 @@
                         android:layout_centerVertical="true"
                         android:text="@string/price"
                         android:textColor="@color/black"
-                        android:textSize="16sp"
+                        android:textSize="@dimen/_14sdp"
                         android:textDirection="locale"
                         android:layout_alignParentStart="true"/>
 
@@ -118,7 +118,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/in_stock"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/_12sdp"
                         android:textDirection="locale"
                         android:textAlignment="viewStart"
                         android:textColor="@color/colorAccentBlue"
@@ -134,12 +134,12 @@
                 android:layout_height="wrap_content"
                 android:maxLines="2"
                 android:text="@string/product_title"
-                android:textSize="16sp"
+                android:textSize="@dimen/_14sdp"
                 android:textStyle="bold"
-                android:paddingEnd="20dp"
-                android:paddingStart="20dp"
+                android:paddingEnd="@dimen/_18sdp"
+                android:paddingStart="@dimen/_18sdp"
                 android:textDirection="locale"
-                android:paddingBottom="5dp"
+                android:paddingBottom="@dimen/_3sdp"
                 android:textAlignment="viewStart"
                 android:textColor="@color/textColorSecondaryDark" />
 
@@ -149,11 +149,11 @@
                 android:layout_height="wrap_content"
                 android:maxLines="1"
                 android:text="@string/category"
-                android:textSize="15sp"
-                android:paddingEnd="20dp"
+                android:textSize="@dimen/_13sdp"
+                android:paddingEnd="@dimen/_18sdp"
                 android:textDirection="locale"
-                android:paddingStart="20dp"
-                android:paddingBottom="5dp"
+                android:paddingStart="@dimen/_18sdp"
+                android:paddingBottom="@dimen/_3sdp"
                 android:textAlignment="viewStart"
                 android:textColor="@color/textColorSecondaryLight" />
 
@@ -162,10 +162,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                android:paddingEnd="20dp"
-                android:paddingStart="20dp"
+                android:paddingTop="@dimen/_3sdp"
+                android:paddingBottom="@dimen/_3sdp"
+                android:paddingEnd="@dimen/_18sdp"
+                android:paddingStart="@dimen/_18sdp"
                 android:gravity="top"
                 android:clickable="true">
 
@@ -188,17 +188,17 @@
                     android:layout_height="wrap_content"
                     android:text="0"
                     android:textDirection="locale"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/_12sdp"
                     android:textColor="@color/colorAccentBlue"
-                    android:layout_marginStart="10dp" />
+                    android:layout_marginStart="@dimen/_8sdp" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/reviews_ratings"
-                    android:textSize="14sp"
+                    android:textSize="@dimen/_12sdp"
                     android:textDirection="locale"
                     android:textColor="@color/colorAccentBlue"
-                    android:layout_marginStart="5dp" />
+                    android:layout_marginStart="@dimen/_3sdp" />
             </LinearLayout>
 
             <LinearLayout
@@ -206,7 +206,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/_8sdp"
                 android:background="@color/windowBackground">
 
                 <View
@@ -217,7 +217,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="20dp">
+                    android:padding="@dimen/_18sdp">
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -228,7 +228,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/quantity"
-                            android:textSize="16sp"
+                            android:textSize="@dimen/_14sdp"
                             android:textStyle="bold"
                             android:textDirection="locale"
                             android:textColor="@color/textColorSecondary" />
@@ -238,7 +238,7 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:gravity="center_vertical"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="@dimen/_8sdp"
                             android:layoutDirection="ltr"
                             android:layout_gravity="end"
                             android:background="@color/white">
@@ -254,11 +254,11 @@
 
                             <TextView
                                 android:id="@+id/product_item_quantity"
-                                android:layout_width="50dp"
+                                android:layout_width="@dimen/_45sdp"
                                 android:layout_height="wrap_content"
                                 android:text="1"
                                 android:textDirection="locale"
-                                android:textSize="15sp"
+                                android:textSize="@dimen/_13sdp"
                                 android:gravity="center"
                                 android:textColor="@color/textColorSecondaryDark" />
                             <androidx.appcompat.widget.AppCompatImageButton
