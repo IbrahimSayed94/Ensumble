@@ -61,4 +61,7 @@
     <string name="privacy_policy">سياسة الخصوصية</string>
     <string name="service_terms">شروط الخدمه</string>
     <string name="app_terms_services">إنشاء حساب يعني أنك بخير مع شركائنا</string>
+
+    <string name="pleaseWait">انتظر من فضلك</string>
+    <string name="api_failure_message">حدث خطأ ما , من فضلك حاول مرة أخرى</string>
 </resources>

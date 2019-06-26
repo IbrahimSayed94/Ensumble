@@ -7,10 +7,22 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.ParsedRequestListener;
+import com.ensumble.AppConfig.Constant;
+import com.ensumble.AppConfig.CustomDialogProgress;
+import com.ensumble.Model.AdvertisingResponse;
+import com.ensumble.Model.ProductsResponse;
 import com.ensumble.R;
 import com.ensumble.adapter.ProductsAdapter;
 
@@ -24,15 +36,21 @@ public class TabHomeFragment extends Fragment
 {
 
 
-    int position=-1;
+    int position=-1 , categoryId=0;
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
+    //progress
+    CustomDialogProgress progress;
+    Handler handler;
 
-    public static Fragment getInstance(int position) {
+
+
+    public static Fragment getInstance(int position,int categoryId) {
         Bundle bundle = new Bundle();
         bundle.putInt("pos", position);
+        bundle.putInt("id", categoryId);
         TabHomeFragment tabFragment = new TabHomeFragment();
         tabFragment.setArguments(bundle);
         return tabFragment;
@@ -44,13 +62,14 @@ public class TabHomeFragment extends Fragment
         View view = inflater.inflate(R.layout.tab_fragment, container, false);
         ButterKnife.bind(this, view);
 
-        fillProductList();
+        getProducts();
         return view;
     } // function of onCreateView
 
     private void getFragmentData()
     {
         position = getArguments().getInt("pos");
+        categoryId = getArguments().getInt("id");
     } // function of getFragmentData
 
 
@@ -62,7 +81,7 @@ public class TabHomeFragment extends Fragment
     } // function of onCreate
 
 
-    private void initProductList(List<String> productList)
+    private void initProductList(List<ProductsResponse.ProductsBean> productList)
     {
         ProductsAdapter adapter=new ProductsAdapter(getContext(),productList);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
@@ -72,16 +91,48 @@ public class TabHomeFragment extends Fragment
     } // function of initProductList
 
 
-    private void fillProductList()
-    {
-        List<String> productList = new ArrayList<>();
-        productList.add("");
-        productList.add("");
-        productList.add("");
-        productList.add("");
-        productList.add("");
-        productList.add("");
-        initProductList(productList);
 
-    } // function of fillProductList
+    private void getProducts()
+    {
+    Log.e("QP","categoryId : "+categoryId);
+        progress = new CustomDialogProgress();
+        progress.init(getContext());
+        handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                progress.dismiss();
+                super.handleMessage(msg);
+            }
+
+        };
+        progress.show();
+        AndroidNetworking.post(Constant.BASE_URL+"Products")
+                .addBodyParameter("user_id","")
+                .addBodyParameter("cat_id", String.valueOf(categoryId))
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsObject(ProductsResponse.class, new ParsedRequestListener<ProductsResponse>() {
+
+                    @Override
+                    public void onResponse(ProductsResponse response) {
+                        progress.dismiss();
+
+                        if(response.getCode().equals("200"))
+                        {
+                          initProductList(response.getProducts());
+                        }
+                        else
+                        {
+                            Toast.makeText(getContext(),getString(R.string.api_failure_message),Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        progress.dismiss();
+                        Toast.makeText(getContext(),getString(R.string.api_failure_message),Toast.LENGTH_LONG).show();
+                    }
+                });
+    } // function of getProducts
 } // calss of TabHomeFragment

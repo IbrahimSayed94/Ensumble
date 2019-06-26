@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.ensumble.Model.ProductsResponse;
 import com.ensumble.R;
 
 import java.util.List;
@@ -20,10 +21,10 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
 
 
     Context context;
-    List<String> productList ;
+    List<ProductsResponse.ProductsBean> productList ;
     int position;
 
-    public ProductsAdapter(Context context, List<String> productList) {
+    public ProductsAdapter(Context context, List<ProductsResponse.ProductsBean> productList) {
         this.context = context;
         this.productList = productList;
     }

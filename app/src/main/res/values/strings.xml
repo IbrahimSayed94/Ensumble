@@ -64,5 +64,8 @@
     <string name="app_terms_services">Creating an account means you\'re okay with our</string>
     <string name="register">Register</string>
 
+    <string name="pleaseWait">Please Wait</string>
+    <string name="api_failure_message">Something went wrong, please try again</string>
+
 
 </resources>
