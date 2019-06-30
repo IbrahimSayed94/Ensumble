@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-   <!-- <LinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -21,7 +21,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                &lt;!&ndash; Header &ndash;&gt;
+                <!-- Header -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:indeterminateTintMode="src_in"
-        android:indeterminateTint="@color/colorPrimaryLight" />-->
+        android:indeterminateTint="@color/colorPrimaryLight" />
 
 
 </RelativeLayout>
