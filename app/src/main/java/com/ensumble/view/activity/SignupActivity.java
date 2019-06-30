@@ -139,7 +139,7 @@ public class SignupActivity extends AppCompatActivity {
                 .addMultipartParameter("password",password)
                 .addMultipartParameter("phone",mobile)
                 .addMultipartParameter("address",address)
-                .addMultipartParameter("admin","0")
+                .addMultipartParameter("roles","3")
                 .setPriority(Priority.HIGH)
                 .build()
                 .setUploadProgressListener(new UploadProgressListener() {

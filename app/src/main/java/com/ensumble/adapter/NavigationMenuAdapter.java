@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.ensumble.R;
 import com.ensumble.view.activity.MainActivity;
 import com.ensumble.view.fragment.HomeFragment;
+import com.ensumble.view.fragment.MyFavoriteFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -72,10 +73,16 @@ public class NavigationMenuAdapter extends RecyclerView.Adapter<NavigationMenuAd
 
                 switch (i) {
                     case 0: // home
-                        ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
-                                .replace(R.id.fragment_container, new HomeFragment()).commit();
+                       Intent intent=new Intent(context,MainActivity.class);
+                       intent.putExtra("flag","homeFragment");
+                       context.startActivity(intent);
+                        ((Activity)context).finish();
                         break;
-                    case 1: // language
+                    case 1: // favorite
+                        ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, new MyFavoriteFragment()).commit();
+                        break;
+                    case 2: // language
                         changeLanguage();
                         break;
                 }

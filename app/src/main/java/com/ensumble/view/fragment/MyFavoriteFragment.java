@@ -1,19 +1,19 @@
 package com.ensumble.view.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -21,23 +21,19 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.ensumble.AppConfig.Constant;
 import com.ensumble.AppConfig.CustomDialogProgress;
-import com.ensumble.Model.AdvertisingResponse;
 import com.ensumble.Model.ProductsResponse;
 import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
 import com.ensumble.adapter.ProductsAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class TabHomeFragment extends Fragment
-{
+public class MyFavoriteFragment extends Fragment {
 
-
-    int position=-1 , categoryId=0;
+    Context context;
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -47,56 +43,41 @@ public class TabHomeFragment extends Fragment
     Handler handler;
 
 
-
-    public static Fragment getInstance(int position,int categoryId) {
-        Bundle bundle = new Bundle();
-        bundle.putInt("pos", position);
-        bundle.putInt("id", categoryId);
-        TabHomeFragment tabFragment = new TabHomeFragment();
-        tabFragment.setArguments(bundle);
-        return tabFragment;
-    } // function of getInstance
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tab_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_my_favorite, container, false);
         ButterKnife.bind(this, view);
 
-        getProducts();
+
+        getMyFavorite();
         return view;
     } // function of onCreateView
 
-    private void getFragmentData()
-    {
-        position = getArguments().getInt("pos");
-        categoryId = getArguments().getInt("id");
-    } // function of getFragmentData
-
+    @Override
+    public void onAttach(Context context) {
+        this.context = context;
+        super.onAttach(context);
+    } // function of onAattach
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getFragmentData();
     } // function of onCreate
 
 
     private void initProductList(List<ProductsResponse.ProductsBean> productList)
     {
-        ProductsAdapter adapter=new ProductsAdapter(getContext(),productList,"home");
+        ProductsAdapter adapter=new ProductsAdapter(getContext(),productList,"favorite");
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
     } // function of initProductList
 
-
-
-    private void getProducts()
+    private void getMyFavorite()
     {
-
-        Log.e("QP","categoryId : "+categoryId);
         progress = new CustomDialogProgress();
         progress.init(getContext());
         handler = new Handler() {
@@ -108,9 +89,8 @@ public class TabHomeFragment extends Fragment
 
         };
         progress.show();
-        AndroidNetworking.post(Constant.BASE_URL+"Products")
+        AndroidNetworking.post(Constant.BASE_URL+"MyFavorite")
                 .addBodyParameter("user_id", PrefUser.getUserId(getContext()))
-                .addBodyParameter("cat_id", String.valueOf(categoryId))
                 .setPriority(Priority.MEDIUM)
                 .build()
                 .getAsObject(ProductsResponse.class, new ParsedRequestListener<ProductsResponse>() {
@@ -122,7 +102,7 @@ public class TabHomeFragment extends Fragment
                         if(response.getCode().equals("200"))
                         {
                             if(response.getProducts().size() > 0)
-                          initProductList(response.getProducts());
+                                initProductList(response.getProducts());
                         }
                         else
                         {
@@ -137,5 +117,6 @@ public class TabHomeFragment extends Fragment
                         Toast.makeText(getContext(),getString(R.string.api_failure_message),Toast.LENGTH_LONG).show();
                     }
                 });
-    } // function of getProducts
-} // calss of TabHomeFragment
+    } // function of getMyFavorite
+
+} // class of MyFavoriteFragment

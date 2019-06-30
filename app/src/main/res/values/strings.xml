@@ -5,10 +5,12 @@
     <array name="nav_drawables_list">
         <item name="home_img">@drawable/ic_home</item>
         <item name="language_img">@drawable/ic_language</item>
+        <item name="language_img">@drawable/ic_favorite_menu</item>
     </array>
 
     <string-array name="navigation_menu_items">
         <item name="home">Home</item>
+        <item name="favorite">My Favorite</item>
         <item name="language">عربى</item>
     </string-array>
 
@@ -17,6 +19,7 @@
 
     <string name="sale">Sale</string>
     <string name="in_stock">In Stock</string>
+    <string name="sold_out">Sold Out</string>
     <string name="price">price</string>
     <string name="product_title">Product Title</string>
     <string name="category">Category</string>

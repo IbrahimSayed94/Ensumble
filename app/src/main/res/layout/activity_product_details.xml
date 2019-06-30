@@ -35,15 +35,15 @@ tools:context=".view.activity.ProductDetailsActivity">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <com.daimajia.slider.library.SliderLayout
                 android:id="@+id/slider"
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                custom:auto_cycle="true"
-                android:background="@color/windowBackground"
-                custom:indicator_visibility="visible"
+                android:layout_height="@dimen/_220sdp"
                 android:layout_gravity="center_horizontal"
-                />
+                android:background="@color/windowBackground"
+                custom:auto_cycle="true"
+                custom:indicator_visibility="visible" />
 
             <View
                 android:layout_width="match_parent"
@@ -72,7 +72,7 @@ tools:context=".view.activity.ProductDetailsActivity">
                     android:background="@android:color/transparent" />
 
                 <ToggleButton
-                    android:id="@+id/product_like_btn"
+                    android:id="@+id/product_favorite_btn"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:textOff=""
@@ -110,13 +110,13 @@ tools:context=".view.activity.ProductDetailsActivity">
                 android:layout_below="@+id/slider">
 
                 <TextView
-                    android:id="@+id/product_price_webView"
+                    android:id="@+id/product_price"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:text="@string/price"
                     android:textColor="@color/black"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/_12sdp"
                     android:textDirection="locale"
                     android:layout_alignParentStart="true"/>
 
@@ -141,7 +141,7 @@ tools:context=".view.activity.ProductDetailsActivity">
             android:layout_height="wrap_content"
             android:maxLines="2"
             android:text="@string/product_title"
-            android:textSize="16sp"
+            android:textSize="@dimen/_13sdp"
             android:textStyle="bold"
             android:paddingEnd="20dp"
             android:paddingStart="20dp"
@@ -151,12 +151,11 @@ tools:context=".view.activity.ProductDetailsActivity">
             android:textColor="@color/textColorSecondaryDark" />
 
         <TextView
-            android:id="@+id/product_category"
+            android:id="@+id/product_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:text="@string/category"
-            android:textSize="15sp"
+            android:text="details"
+            android:textSize="@dimen/_12sdp"
             android:paddingEnd="20dp"
             android:textDirection="locale"
             android:paddingStart="20dp"
@@ -164,49 +163,7 @@ tools:context=".view.activity.ProductDetailsActivity">
             android:textAlignment="viewStart"
             android:textColor="@color/textColorSecondaryLight" />
 
-        <LinearLayout
-            android:id="@+id/product_reviews_ratings"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:paddingEnd="20dp"
-            android:paddingStart="20dp"
-            android:gravity="top"
-            android:clickable="true">
 
-            <hyogeun.github.com.colorratingbarlib.ColorRatingBar
-                android:id="@+id/product_rating_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:numStars="5"
-                android:rating="0"
-                android:stepSize="0.1"
-                app:changeable="false"
-                android:paddingTop="2dp"
-                style="?android:attr/ratingBarStyleSmall"
-                app:empty_color="@color/colorAccentGrey"
-                app:progress_color="@android:color/holo_orange_light" />
-
-            <TextView
-                android:id="@+id/product_ratings_count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textDirection="locale"
-                android:textSize="14sp"
-                android:textColor="@color/colorAccentBlue"
-                android:layout_marginStart="10dp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/reviews_ratings"
-                android:textSize="14sp"
-                android:textDirection="locale"
-                android:textColor="@color/colorAccentBlue"
-                android:layout_marginStart="5dp" />
-        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/simple_product"
@@ -336,7 +293,7 @@ tools:context=".view.activity.ProductDetailsActivity">
                         android:layout_width="70dp"
                         android:layout_height="70dp"
                         android:textSize="14sp"
-                        android:id="@+id/store_name"
+                        android:id="@+id/product_seller_image"
                         android:src="@drawable/asser"
                         android:layout_margin="10dp"
                         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -354,7 +311,7 @@ tools:context=".view.activity.ProductDetailsActivity">
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Seller name"
-                            android:id="@+id/seller_name"
+                            android:id="@+id/product_seller_name"
                             android:textSize="16sp"
                             android:textColor="@color/colorAccentBlue"
                             android:layout_alignParentEnd="true"
@@ -369,7 +326,7 @@ tools:context=".view.activity.ProductDetailsActivity">
                             android:background="@color/colorAccentBlue"
                             android:id="@+id/store_btn"
                             android:layout_alignParentEnd="true"
-                            android:layout_below="@+id/seller_name"
+                            android:layout_below="@+id/product_seller_name"
                             />
                     </RelativeLayout>
 

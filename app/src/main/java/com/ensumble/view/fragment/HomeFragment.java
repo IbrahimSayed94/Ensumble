@@ -214,7 +214,6 @@ public class HomeFragment extends Fragment
             public void onTabSelected(TabLayout.Tab tab) {
 
 
-
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     Window window = getActivity().getWindow();
                     window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -239,13 +238,12 @@ public class HomeFragment extends Fragment
     private   void  imageSlider (View view,List<AdvertisingResponse.DataBean> imageList)
     {
 
-        String imageUrl="";
         sliderShow = view.findViewById(R.id.slider);
 
         for(int i = 0 ; i< imageList.size() ; i++) {
             textSliderView = new TextSliderView (getContext());
             textSliderView
-                    .image(imageUrl+imageList.get(i).getImg());
+                    .image(Constant.ADVERTISMENT_IMAGE_URL+imageList.get(i).getImg());
             sliderShow.addSlider(textSliderView);
 
         }
