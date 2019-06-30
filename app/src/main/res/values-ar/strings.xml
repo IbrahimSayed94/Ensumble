@@ -61,4 +61,14 @@
     <string name="privacy_policy">سياسة الخصوصية</string>
     <string name="service_terms">شروط الخدمه</string>
     <string name="app_terms_services">إنشاء حساب يعني أنك بخير مع شركائنا</string>
+
+    <string name="pleaseWait">انتظر من فضلك</string>
+    <string name="api_failure_message">حدث خطأ ما , من فضلك حاول مرة أخرى</string>
+
+    <string name="mobileNumber">رقم الموبايل</string>
+    <string name="address">العنوان</string>
+    <string name="completeFields">اكمل البيانات</string>
+    <string name="userRegisterdBefore">هذا المستخدم مسجل من قبل</string>
+    <string name="successfullyDone">تمت بنجاح</string>
+    <string name="mobileOrPasswordWrong">يوجد خطأ فى رقم الموبايل او كلمة المرور</string>
 </resources>

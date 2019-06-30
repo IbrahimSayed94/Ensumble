@@ -1,63 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.activity.SignupActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
         android:isScrollContainer="true"
-        android:scrollbars="none">
+        android:scrollbars="none"
+        android:layout_below="@+id/include"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/_20sdp">
+            android:padding="@dimen/_45sdp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_120sdp"
+                android:layout_height="@dimen/_90sdp"
                 android:layout_gravity="center_horizontal">
 
-                <ImageView
-                    android:id="@+id/logoImg"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ensemble"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/user_image"
+                    android:layout_width="@dimen/_85sdp"
+                    android:layout_height="@dimen/_85sdp"
+                    android:src="@drawable/placeholder"
+                    app:civ_border_width="@dimen/_1sdp"
+                    app:civ_border_color="@color/colorPrimary"
+                    android:layout_centerInParent="true"
                     />
 
-                <!--<com.vectorcoder.androidwoocommerce.customs.CircularImageView
-                    android:id="@+id/user_photo"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="gone"
-                    android:src="@drawable/profile"
-                    app:border_color="@color/white"
-                    app:border_overlay="true"
-                    app:border_width="2dp"/>-->
-
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/user_photo_edit_fab"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:src="@drawable/ic_camera"
-                    android:tint="@color/white"
-                    app:backgroundTint="@color/colorAccentBlue"
-                    app:rippleColor="@color/colorAccentBlue"
-                    app:borderWidth="10dp"
-                    app:elevation="0dp"
-                    app:fabSize="mini"
-                    app:pressedTranslationZ="0dp"
-                    app:useCompatPadding="true"
-                    android:layout_margin="0dp"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentEnd="true" />
 
             </RelativeLayout>
 
@@ -70,156 +50,166 @@
                 android:orientation="vertical">
 
                 <EditText
-                    android:id="@+id/user_firstname"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_40sdp"
-                    android:drawablePadding="@dimen/_15sdp"
-                    android:drawableStart="@drawable/ic_person"
-                    android:gravity="start|center_vertical"
-                    android:hint="@string/first_name"
-                    android:inputType="textNoSuggestions"
-                    android:paddingEnd="@dimen/_15sdp"
-                    android:paddingStart="@dimen/_15sdp"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/textColorSecondary"
-                    android:textColorHint="@color/textColorPrimaryDark"
-                    android:background="@drawable/rounded_corners_edittext_dark" />
-
-                <EditText
-                    android:id="@+id/user_lastname"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="@dimen/_10sdp"
-                    android:layout_height="@dimen/_40sdp"
-                    android:drawablePadding="@dimen/_15sdp"
-                    android:drawableStart="@drawable/ic_person"
-                    android:gravity="start|center_vertical"
-                    android:hint="@string/last_name"
-                    android:inputType="textNoSuggestions"
-                    android:paddingEnd="@dimen/_15sdp"
-                    android:paddingStart="@dimen/_15sdp"
-                    android:textAlignment="viewStart"
-                    android:textColor="@color/textColorSecondary"
-                    android:textColorHint="@color/textColorPrimaryDark"
-                    android:background="@drawable/rounded_corners_edittext_dark" />
-
-                <EditText
                     android:id="@+id/username"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_height="@dimen/_40sdp"
-                    android:drawablePadding="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/rounded_corners_edittext_dark"
                     android:drawableStart="@drawable/ic_account"
+                    android:drawablePadding="@dimen/_15sdp"
                     android:gravity="start|center_vertical"
                     android:hint="@string/username"
                     android:inputType="textNoSuggestions"
-                    android:paddingEnd="@dimen/_15sdp"
                     android:paddingStart="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_15sdp"
                     android:textAlignment="viewStart"
                     android:textColor="@color/textColorSecondary"
-                    android:textColorHint="@color/textColorPrimaryDark"
-                    android:background="@drawable/rounded_corners_edittext_dark" />
+                    android:textColorHint="@color/textColorPrimaryDark" />
+
 
                 <EditText
                     android:id="@+id/user_email"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_height="@dimen/_40sdp"
-                    android:drawablePadding="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/rounded_corners_edittext_dark"
                     android:drawableStart="@drawable/ic_email"
+                    android:drawablePadding="@dimen/_15sdp"
                     android:gravity="start|center_vertical"
                     android:hint="@string/email_address"
                     android:inputType="textEmailAddress|textNoSuggestions"
-                    android:paddingEnd="@dimen/_15sdp"
                     android:paddingStart="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_15sdp"
                     android:textAlignment="viewStart"
                     android:textColor="@color/textColorSecondary"
-                    android:textColorHint="@color/textColorPrimaryDark"
-                    android:background="@drawable/rounded_corners_edittext_dark" />
+                    android:textColorHint="@color/textColorPrimaryDark" />
+
 
                 <EditText
                     android:id="@+id/user_password"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="@dimen/_10sdp"
                     android:layout_height="@dimen/_40sdp"
-                    android:drawablePadding="@dimen/_15sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/rounded_corners_edittext_dark"
                     android:drawableStart="@drawable/ic_lock"
+                    android:drawablePadding="@dimen/_15sdp"
                     android:gravity="start|center_vertical"
                     android:hint="@string/password"
                     android:inputType="textPassword|textNoSuggestions"
-                    android:paddingEnd="@dimen/_15sdp"
                     android:paddingStart="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_15sdp"
                     android:textAlignment="viewStart"
                     android:textColor="@color/textColorSecondary"
-                    android:textColorHint="@color/textColorPrimaryDark"
-                    android:background="@drawable/rounded_corners_edittext_dark" />
+                    android:textColorHint="@color/textColorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/user_mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/rounded_corners_edittext_dark"
+                    android:drawableStart="@drawable/ic_call"
+                    android:drawablePadding="@dimen/_15sdp"
+                    android:gravity="start|center_vertical"
+                    android:hint="@string/mobileNumber"
+                    android:inputType="number"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/textColorSecondary"
+                    android:textColorHint="@color/textColorPrimaryDark" />
+
+
+                <EditText
+                    android:id="@+id/user_adderess"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_40sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/rounded_corners_edittext_dark"
+                    android:drawableStart="@drawable/ic_location"
+                    android:drawablePadding="@dimen/_15sdp"
+                    android:gravity="start|center_vertical"
+                    android:hint="@string/address"
+                    android:inputType="text"
+                    android:paddingStart="@dimen/_15sdp"
+                    android:paddingEnd="@dimen/_15sdp"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/textColorSecondary"
+                    android:textColorHint="@color/textColorPrimaryDark" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_13sdp"
                     android:text="@string/app_terms_services"
-                    android:textSize="@dimen/_11sdp"
                     android:textAlignment="center"
-                    android:textColor="@color/textColorSecondaryLight" />
+                    android:visibility="gone"
+                    android:textColor="@color/textColorSecondaryLight"
+                    android:textSize="@dimen/_11sdp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/_2sdp"
                     android:gravity="center"
-                    android:layout_marginTop="@dimen/_2sdp">
+                    android:visibility="gone"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/service_terms"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/service_terms"
-                        android:textSize="@dimen/_11sdp"
                         android:clickable="true"
-                        android:textColor="@color/colorAccentBlue" />
+                        android:text="@string/service_terms"
+                        android:textColor="@color/colorAccentBlue"
+                        android:textSize="@dimen/_11sdp" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=", "
-                        android:textSize="@dimen/_11sdp"
-                        android:textColor="@color/textColorSecondaryLight" />
+                        android:textColor="@color/textColorSecondaryLight"
+                        android:textSize="@dimen/_11sdp" />
+
                     <TextView
                         android:id="@+id/privacy_policy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/privacy_policy"
-                        android:textSize="@dimen/_11sdp"
                         android:clickable="true"
-                        android:textColor="@color/colorAccentBlue" />
+                        android:text="@string/privacy_policy"
+                        android:textColor="@color/colorAccentBlue"
+                        android:textSize="@dimen/_11sdp" />
+
                     <TextView
                         android:id="@+id/and"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/and"
-                        android:textSize="@dimen/_11sdp"
-                        android:textColor="@color/textColorSecondaryLight" />
+                        android:textColor="@color/textColorSecondaryLight"
+                        android:textSize="@dimen/_11sdp" />
+
                     <TextView
                         android:id="@+id/refund_policy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/refund_policy"
-                        android:textSize="@dimen/_11sdp"
                         android:clickable="true"
-                        android:textColor="@color/colorAccentBlue" />
+                        android:text="@string/refund_policy"
+                        android:textColor="@color/colorAccentBlue"
+                        android:textSize="@dimen/_11sdp" />
 
                 </LinearLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/signupBtn"
+                    android:id="@+id/bt_signUp"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_40sdp"
                     android:layout_marginTop="@dimen/_20sdp"
+                    android:background="@drawable/rounded_corners_button"
                     android:text="@string/register"
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_16sdp"
-                    app:backgroundTint="@color/colorAccentGreen"
-                    android:background="@drawable/rounded_corners_button" />
+                    app:backgroundTint="@color/colorAccentGreen" />
 
             </LinearLayout>
 
@@ -227,9 +217,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_marginTop="@dimen/_10sdp"
-                android:gravity="center_vertical" >
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <View
                     android:layout_width="0dip"
@@ -242,15 +232,15 @@
                     android:layout_height="wrap_content"
                     android:layout_weight=".2"
                     android:text="OR"
-                    android:textSize="@dimen/_14sdp"
                     android:textAlignment="center"
-                    android:textColor="@color/textColorSecondaryLight" />
+                    android:textColor="@color/textColorSecondaryLight"
+                    android:textSize="@dimen/_14sdp" />
 
                 <View
                     android:layout_width="0dip"
                     android:layout_height="1dp"
                     android:layout_weight=".4"
-                    android:background="@color/dividerLight"/>
+                    android:background="@color/dividerLight" />
 
             </LinearLayout>
 
@@ -268,10 +258,10 @@
                     android:layout_height="wrap_content"
                     android:text="@string/already_have_account"
                     android:textColor="@color/textColorSecondaryLight"
-                    android:textSize="@dimen/_14sdp"/>
+                    android:textSize="@dimen/_14sdp" />
 
                 <TextView
-                    android:id="@+id/signup_loginText"
+                    android:id="@+id/bt_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/_4sdp"
@@ -279,7 +269,7 @@
                     android:text="@string/login"
                     android:textColor="@color/colorAccentGreen"
                     android:textSize="@dimen/_18sdp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -291,7 +281,6 @@
         android:id="@+id/banner_adView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-    </FrameLayout>
+        android:layout_alignParentBottom="true"></FrameLayout>
 
 </RelativeLayout>

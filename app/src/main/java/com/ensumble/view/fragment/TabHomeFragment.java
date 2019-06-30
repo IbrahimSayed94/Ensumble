@@ -23,6 +23,7 @@ import com.ensumble.AppConfig.Constant;
 import com.ensumble.AppConfig.CustomDialogProgress;
 import com.ensumble.Model.AdvertisingResponse;
 import com.ensumble.Model.ProductsResponse;
+import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
 import com.ensumble.adapter.ProductsAdapter;
 
@@ -94,7 +95,7 @@ public class TabHomeFragment extends Fragment
 
     private void getProducts()
     {
-    Log.e("QP","categoryId : "+categoryId);
+    Log.e("QP","categoryId : "+categoryId +" : "+PrefUser.getUserId(getContext()));
         progress = new CustomDialogProgress();
         progress.init(getContext());
         handler = new Handler() {
@@ -107,7 +108,7 @@ public class TabHomeFragment extends Fragment
         };
         progress.show();
         AndroidNetworking.post(Constant.BASE_URL+"Products")
-                .addBodyParameter("user_id","")
+                .addBodyParameter("user_id", PrefUser.getUserId(getContext()))
                 .addBodyParameter("cat_id", String.valueOf(categoryId))
                 .setPriority(Priority.MEDIUM)
                 .build()

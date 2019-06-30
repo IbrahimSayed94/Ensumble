@@ -13,7 +13,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_110sdp"
-        android:background="@color/white" >
+        android:background="@color/white"
+        android:padding="@dimen/_5sdp"
+        >
 
 
         <de.hdodenhof.circleimageview.CircleImageView

@@ -1,6 +1,7 @@
 package com.ensumble.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.ensumble.Model.ProductsResponse;
 import com.ensumble.R;
+import com.ensumble.view.activity.ProductDetailsActivity;
 
 import java.util.List;
 
@@ -46,6 +48,15 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ProductDetailsActivity.class);
+                intent.putExtra("id",productList.get(position).getId());
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
