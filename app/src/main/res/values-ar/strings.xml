@@ -6,10 +6,12 @@
     <array name="nav_drawables_list">
         <item name="home_img">@drawable/ic_home</item>
         <item name="language_img">@drawable/ic_language</item>
+        <item name="language_img">@drawable/ic_favorite_menu</item>
     </array>
 
     <string-array name="navigation_menu_items">
         <item name="home">الرئيسية</item>
+        <item name="favorite">المفضلة</item>
         <item name="language">English</item>
     </string-array>
 
@@ -21,6 +23,7 @@
     <string name="featured">مميز</string>
 
     <string name="in_stock">فى المخزن</string>
+    <string name="sold_out">مباعة</string>
     <string name="price">السعر</string>
     <string name="product_title">عنوان المنتج</string>
     <string name="category">الفئه</string>

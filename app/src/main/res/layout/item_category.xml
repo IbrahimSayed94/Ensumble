@@ -83,6 +83,7 @@
                         android:paddingStart="3dp"
                         android:paddingBottom="1dp"
                         android:layout_gravity="end"
+                        android:visibility="gone"
                         android:background="@color/colorAccentBlue" />
 
                 </LinearLayout>
@@ -108,24 +109,13 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
-                        android:id="@+id/item_category"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="category"
-                        android:textSize="@dimen/_12sdp"
-                        android:textAlignment="viewStart"
-                        android:maxLines="1"
-                        android:layout_alignParentStart="true"
-                        />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="@string/seller_name"
                         android:textSize="@dimen/_8sdp"
-                        android:layout_alignParentEnd="true"
-                        android:id="@+id/seller_name_category"/>
+                        android:id="@+id/product_seller_name"/>
                 </RelativeLayout>
 
 
@@ -135,7 +125,7 @@
                     android:layout_marginTop="@dimen/_2sdp">
 
                     <ToggleButton
-                        android:id="@+id/product_like_btn"
+                        android:id="@+id/product_favorite_btn"
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
                         android:textOff=""
@@ -145,7 +135,7 @@
                         android:background="@drawable/toggle_ic_favorite" />
 
                     <TextView
-                        android:id="@+id/product_price_webView"
+                        android:id="@+id/product_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
@@ -158,7 +148,7 @@
                 </RelativeLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/product_card_Btn"
+                    android:id="@+id/product_cart_btn"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_20sdp"
                     android:text="@string/addToCart"

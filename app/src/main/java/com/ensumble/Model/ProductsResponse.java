@@ -2,16 +2,15 @@ package com.ensumble.Model;
 
 import androidx.annotation.Nullable;
 
-import java.util.List;
+import com.google.gson.annotations.SerializedName;
 
-import butterknife.BindView;
+import java.util.List;
 
 public class ProductsResponse extends BaseResponse
 {
 
     /**
-     * Products : [{"id":3,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":1,"date":"2019-06-23","image":{"id":1,"img":"15613146101.jpg"}},{"id":4,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null},{"id":6,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null},{"id":7,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null},{"id":8,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null},{"id":9,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null},{"id":10,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null},{"id":11,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null}]
-     * Status : success
+     * Products : [{"id":4,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null,"new":1},{"id":6,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null,"new":1},{"id":7,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null,"new":1},{"id":8,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null,"new":1},{"id":9,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null,"new":1},{"id":10,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null,"new":1},{"id":11,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-23 12:30:10","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":0,"date":"2019-06-23","image":null,"new":1},{"id":3,"ar_title":"جزمه","en_title":"shoes","ar_description":"جزمه بيضه","en_description":"sh2ahbbas","confirm":"1","img":null,"show":null,"price":"523","sale":"0","salePrice":null,"cat_id":"1","created_by":"1","updated_by":null,"created_at":"2019-06-22 00:00:00","updated_at":"2019-06-23 12:30:10","user":[{"id":1,"name":"admin","img":null,"phone":"01117878258"}],"favorite":0,"view":1,"date":"2019-06-22","image":{"id":1,"img":"15613146101.jpg"},"new":1}]
      * code : 200
      * message : code sent successfully
      */
@@ -32,7 +31,7 @@ public class ProductsResponse extends BaseResponse
 
     public static class ProductsBean {
         /**
-         * id : 3
+         * id : 4
          * ar_title : جزمه
          * en_title : shoes
          * ar_description : جزمه بيضه
@@ -50,9 +49,10 @@ public class ProductsResponse extends BaseResponse
          * updated_at : 2019-06-23 12:30:10
          * user : [{"id":1,"name":"admin","img":null,"phone":"01117878258"}]
          * favorite : 0
-         * view : 1
+         * view : 0
          * date : 2019-06-23
-         * image : {"id":1,"img":"15613146101.jpg"}
+         * image : null
+         * new : 1
          */
 
         @Nullable
@@ -80,13 +80,22 @@ public class ProductsResponse extends BaseResponse
         @Nullable
         private String cat_id;
         @Nullable
-        private int favorite;
+        private String created_by;
         @Nullable
-        private int view;
+        private String updated_by;
+        @Nullable
+        private String created_at;
+        @Nullable
+        private String updated_at;
+        @Nullable
+        private String favorite;
+        @Nullable
+        private String view;
         @Nullable
         private String date;
         @Nullable
-        private ImageBean image;
+        @SerializedName("new")
+        private String newX;
         @Nullable
         private List<UserBean> user;
 
@@ -198,19 +207,57 @@ public class ProductsResponse extends BaseResponse
             this.cat_id = cat_id;
         }
 
-        public int getFavorite() {
+        @Nullable
+        public String getCreated_by() {
+            return created_by;
+        }
+
+        public void setCreated_by(@Nullable String created_by) {
+            this.created_by = created_by;
+        }
+
+        @Nullable
+        public String getUpdated_by() {
+            return updated_by;
+        }
+
+        public void setUpdated_by(@Nullable String updated_by) {
+            this.updated_by = updated_by;
+        }
+
+        @Nullable
+        public String getCreated_at() {
+            return created_at;
+        }
+
+        public void setCreated_at(@Nullable String created_at) {
+            this.created_at = created_at;
+        }
+
+        @Nullable
+        public String getUpdated_at() {
+            return updated_at;
+        }
+
+        public void setUpdated_at(@Nullable String updated_at) {
+            this.updated_at = updated_at;
+        }
+
+        @Nullable
+        public String getFavorite() {
             return favorite;
         }
 
-        public void setFavorite(int favorite) {
+        public void setFavorite(@Nullable String favorite) {
             this.favorite = favorite;
         }
 
-        public int getView() {
+        @Nullable
+        public String getView() {
             return view;
         }
 
-        public void setView(int view) {
+        public void setView(@Nullable String view) {
             this.view = view;
         }
 
@@ -224,12 +271,12 @@ public class ProductsResponse extends BaseResponse
         }
 
         @Nullable
-        public ImageBean getImage() {
-            return image;
+        public String getNewX() {
+            return newX;
         }
 
-        public void setImage(@Nullable ImageBean image) {
-            this.image = image;
+        public void setNewX(@Nullable String newX) {
+            this.newX = newX;
         }
 
         @Nullable
@@ -239,35 +286,6 @@ public class ProductsResponse extends BaseResponse
 
         public void setUser(@Nullable List<UserBean> user) {
             this.user = user;
-        }
-
-        public static class ImageBean {
-            /**
-             * id : 1
-             * img : 15613146101.jpg
-             */
-
-            @Nullable
-            private int id;
-            @Nullable
-            private String img;
-
-            public int getId() {
-                return id;
-            }
-
-            public void setId(int id) {
-                this.id = id;
-            }
-
-            @Nullable
-            public String getImg() {
-                return img;
-            }
-
-            public void setImg(@Nullable String img) {
-                this.img = img;
-            }
         }
 
         public static class UserBean {
