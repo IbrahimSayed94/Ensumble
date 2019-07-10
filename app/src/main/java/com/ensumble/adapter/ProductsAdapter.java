@@ -156,6 +156,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProductDetailsActivity.class);
                 intent.putExtra("id",productsBean.getId());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
                 ((Activity)context).finish();
             }

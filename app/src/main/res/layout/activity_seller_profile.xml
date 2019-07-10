@@ -15,6 +15,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
+
+            <include
+                layout="@layout/toolbar"
+                />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -24,7 +30,7 @@
                 android:padding="@dimen/_20sdp">
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/seller_photo"
+                    android:id="@+id/seller_image"
                     android:layout_width="@dimen/_96sdp"
                     android:layout_height="@dimen/_96sdp"
                     android:src="@drawable/asser"
@@ -72,7 +78,7 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="@dimen/_5sdp">
                         <hyogeun.github.com.colorratingbarlib.ColorRatingBar
-                            android:id="@+id/product_rating_bar"
+                            android:id="@+id/seller_rate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:numStars="5"
