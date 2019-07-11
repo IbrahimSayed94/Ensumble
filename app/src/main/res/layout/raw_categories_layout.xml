@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/_120sdp"
     android:layout_margin="@dimen/_1sdp"
+    android:background="@drawable/category_background"
     >
 
     <ImageView
@@ -28,7 +29,8 @@
             android:textStyle="bold"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:layout_marginTop="@dimen/_2sdp" />
+            android:layout_marginTop="@dimen/_2sdp"
+            android:text="@string/category"/>
 
         <TextView
             android:id="@+id/category_products"
@@ -37,7 +39,8 @@
             android:textSize="@dimen/_12sdp"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:layout_marginTop="@dimen/_2sdp" />
+            android:layout_marginTop="@dimen/_2sdp"
+            android:text="20"/>
 
     </LinearLayout>
 

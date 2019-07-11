@@ -1,6 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+
+
+
+        </RelativeLayout>
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/asser"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:id="@+id/seller_profile"
+            android:layout_alignParentStart="true"
+            android:layout_gravity="center"/>
+
+        <hyogeun.github.com.colorratingbarlib.ColorRatingBar
+            android:id="@+id/product_rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="0"
+            android:stepSize="0.1"
+            app:changeable="false"
+            android:paddingTop="@dimen/_2sdp"
+            style="?android:attr/ratingBarStyleSmall"
+            app:empty_color="@color/colorAccentGrey"
+            app:progress_color="@android:color/holo_orange_light"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/seller_name_sales"
+            android:text="@string/seller_name"
+            android:layout_gravity="center"
+            android:textSize="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            />
+
+        <view
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/dividerLight"
+            />
+
+
+        <ImageView
+            android:id="@+id/seller_sale_photo"
+            android:layout_width="match_parent"
+            android:layout_height="147dp"
+            android:layout_weight="1"
+            android:src="@drawable/asser" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_13sdp"
+            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:id="@+id/text_sale"
+            android:text="dasda dasdasda sdasdasd dasdasdas dasdsa dsd fhdj fasfjehfsda dasjkdhas "/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="20/6/2019"
+            android:textSize="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_8sdp"/>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -125,14 +125,14 @@
                     android:layout_marginTop="@dimen/_2sdp">
 
                     <ToggleButton
-                        android:id="@+id/product_favorite_btn"
+                        android:id="@+id/product_delete_btn"
                         android:layout_width="@dimen/_18sdp"
                         android:layout_height="@dimen/_18sdp"
                         android:textOff=""
                         android:textOn=""
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
-                        android:background="@drawable/toggle_ic_favorite" />
+                        android:background="@drawable/ic_delete_forever" />
 
                     <TextView
                         android:id="@+id/product_price"
@@ -143,15 +143,15 @@
                         android:textColor="@color/colorAccentBlue"
                         android:text="200 $"
                         android:textSize="@dimen/_12sdp"
-                        android:layout_toStartOf="@+id/product_like_btn"/>
+                        android:layout_toStartOf="@+id/product_delete_btn"/>
 
                 </RelativeLayout>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/product_cart_btn"
+                    android:id="@+id/edit_button"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_20sdp"
-                    android:text="@string/addToCart"
+                    android:text="@string/edit"
                     android:textAllCaps="true"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_12sdp"

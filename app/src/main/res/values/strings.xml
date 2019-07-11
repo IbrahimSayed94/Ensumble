@@ -85,5 +85,12 @@
     <string name="arabic_description">Arabic Description</string>
     <string name="english_description">English Description</string>
     <string name="upload_product">Upload Product</string>
+    <string name="edit">Edit</string>
+    <string name="full_name">Full Name</string>
+    <string name="your_message">Your Message</string>
+    <string name="rate_now">Rate Now</string>
+    <string name="rate_product">Rate Product</string>
+    <string name="date">Date</string>
+    <string name="description">Description</string>
 
 </resources>
