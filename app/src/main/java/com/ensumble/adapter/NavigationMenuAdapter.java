@@ -17,9 +17,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.ensumble.R;
+import com.ensumble.view.activity.AddProductActivity;
 import com.ensumble.view.activity.MainActivity;
 import com.ensumble.view.fragment.HomeFragment;
 import com.ensumble.view.fragment.MyFavoriteFragment;
+import com.ensumble.view.fragment.SellerCategoriesFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -82,7 +84,15 @@ public class NavigationMenuAdapter extends RecyclerView.Adapter<NavigationMenuAd
                         ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container, new MyFavoriteFragment()).commit();
                         break;
-                    case 2: // language
+                    case 2: // seller categories
+                        ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, new SellerCategoriesFragment()).commit();
+                        break;
+                    case 3: // seller categories
+                       Intent intent1 = new Intent(context, AddProductActivity.class);
+                       context.startActivity(intent1);
+                        break;
+                    case 4: // language
                         changeLanguage();
                         break;
                 }

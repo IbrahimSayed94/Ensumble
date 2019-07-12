@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.androidnetworking.AndroidNetworking;
@@ -22,19 +23,19 @@ import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.ensumble.AppConfig.Constant;
 import com.ensumble.AppConfig.CustomDialogProgress;
 import com.ensumble.Model.ProductsResponse;
+import com.ensumble.Model.SellerCategoriesResponse;
 import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
 import com.ensumble.adapter.ProductsAdapter;
+import com.ensumble.adapter.SellerCategoryAdapter;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MyFavoriteFragment extends Fragment {
-
-    Context context;
-
+public class SellerCategoriesFragment extends Fragment
+{
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
@@ -42,6 +43,7 @@ public class MyFavoriteFragment extends Fragment {
     CustomDialogProgress progress;
     Handler handler;
 
+    Context context;
 
     @Nullable
     @Override
@@ -49,8 +51,8 @@ public class MyFavoriteFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_my_favorite, container, false);
         ButterKnife.bind(this, view);
 
+        getSellerCategories();
 
-        getMyFavorite();
         return view;
     } // function of onCreateView
 
@@ -67,16 +69,16 @@ public class MyFavoriteFragment extends Fragment {
     } // function of onCreate
 
 
-    private void initProductList(List<ProductsResponse.ProductsBean> productList)
+    private void initSellerCategoryList(List<SellerCategoriesResponse.DataBean> categoryList)
     {
-        ProductsAdapter adapter=new ProductsAdapter(context,productList,"favorite");
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(context,2);
-        recyclerView.setLayoutManager(gridLayoutManager);
+        SellerCategoryAdapter adapter=new SellerCategoryAdapter(context,categoryList);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
+        recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
-    } // function of initProductList
+    } // fnction of initSellerCategoryList
 
-    private void getMyFavorite()
+    private void getSellerCategories()
     {
         progress = new CustomDialogProgress();
         progress.init(getContext());
@@ -89,20 +91,19 @@ public class MyFavoriteFragment extends Fragment {
 
         };
         progress.show();
-        AndroidNetworking.post(Constant.BASE_URL+"MyFavorite")
-                .addBodyParameter("user_id", PrefUser.getUserId(getContext()))
+        AndroidNetworking.get(Constant.BASE_URL+"CategoriesOfCompany")
                 .setPriority(Priority.MEDIUM)
                 .build()
-                .getAsObject(ProductsResponse.class, new ParsedRequestListener<ProductsResponse>() {
+                .getAsObject(SellerCategoriesResponse.class, new ParsedRequestListener<SellerCategoriesResponse>() {
 
                     @Override
-                    public void onResponse(ProductsResponse response) {
+                    public void onResponse(SellerCategoriesResponse response) {
                         progress.dismiss();
 
                         if(response.getCode().equals("200"))
                         {
-                            if(response.getProducts().size() > 0)
-                                initProductList(response.getProducts());
+                          if(response.getData().size() > 0)
+                              initSellerCategoryList(response.getData());
                         }
                         else
                         {
@@ -117,6 +118,6 @@ public class MyFavoriteFragment extends Fragment {
                         Toast.makeText(getContext(),getString(R.string.api_failure_message),Toast.LENGTH_LONG).show();
                     }
                 });
-    } // function of getMyFavorite
+    } // function of getSellerCategories
 
-} // class of MyFavoriteFragment
+} // class of SellerCategoriesFragment

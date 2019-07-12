@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ensumble.R;
+import com.facebook.drawee.backends.pipeline.Fresco;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -24,6 +25,7 @@ public class MyApp extends Application
         super.onCreate();
         MyApp.context = getApplicationContext();
 
+        Fresco.initialize(getApplicationContext());
         initLanguage();
 
 

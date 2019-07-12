@@ -4,13 +4,17 @@
 
     <array name="nav_drawables_list">
         <item name="home_img">@drawable/ic_home</item>
-        <item name="language_img">@drawable/ic_language</item>
         <item name="language_img">@drawable/ic_favorite_menu</item>
+        <item name="language_img">@drawable/ic_shopping_cart</item>
+        <item name="language_img">@drawable/ic_add_product</item>
+        <item name="language_img">@drawable/ic_language</item>
     </array>
 
     <string-array name="navigation_menu_items">
         <item name="home">Home</item>
         <item name="favorite">My Favorite</item>
+        <item name="categories">Categories</item>
+        <item name="addProduct">Add Product</item>
         <item name="language">عربى</item>
     </string-array>
 
@@ -66,12 +70,8 @@
     <string name="service_terms">Service Terms</string>
     <string name="app_terms_services">Creating an account means you\'re okay with our</string>
     <string name="register">Register</string>
-    <string name="more_info">More Info</string>
-    <string name="deliver">Deliver Me</string>
-    <string name="address">Address</string>
-    <string name="phone">Phone</string>
-    <string name="links">Links</string>
 
+    <string name="address">address</string>
     <string name="pleaseWait">Please Wait</string>
     <string name="api_failure_message">Something went wrong, please try again</string>
     <string name="mobileNumber">Mobile number</string>
@@ -85,6 +85,11 @@
     <string name="arabic_description">Arabic Description</string>
     <string name="english_description">English Description</string>
     <string name="upload_product">Upload Product</string>
+    <string name="more_info">More Info</string>
+    <string name="deliver">Deliver Me</string>
+    <string name="phone">Phone</string>
+    <string name="links">Links</string>
+    <string name="totalImages">Total images : </string>
     <string name="edit">Edit</string>
     <string name="full_name">Full Name</string>
     <string name="your_message">Your Message</string>

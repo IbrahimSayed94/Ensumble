@@ -8,7 +8,8 @@
     card_view:cardElevation="@dimen/_2sdp"
     card_view:cardCornerRadius="0dp"
     card_view:cardUseCompatPadding="true"
-    card_view:cardPreventCornerOverlap="false">
+    card_view:cardPreventCornerOverlap="false"
+    app:ignore="NamespaceTypo">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -18,15 +19,15 @@
         >
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/product_cover"
+        <ImageView
+            android:id="@+id/seller_image"
             android:layout_width="@dimen/_110sdp"
             android:layout_height="@dimen/_70sdp"
             android:src="@drawable/asser"
             android:clickable="true"
-            android:layout_centerVertical="true"
+            android:scaleType="fitXY"
             android:layout_alignParentStart="true"
-            android:background="@color/white" />
+             />
 
 
         <RelativeLayout
@@ -34,19 +35,19 @@
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/_1sdp"
             android:layout_marginEnd="@dimen/_10sdp"
-            android:layout_toEndOf="@+id/product_cover" >
+            android:layout_toEndOf="@+id/seller_image" >
 
             <TextView
-                android:id="@+id/product_title"
+                android:id="@+id/seller_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLines="2"
+                android:maxLines="1"
                 android:textSize="@dimen/_14sdp"
                 android:textAlignment="viewStart"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
                 android:layout_alignParentTop="true"
-                android:visibility="gone"
+                android:text="Seller Name"
                 android:textColor="@color/textColorSecondaryDark" />
 
             <LinearLayout
@@ -60,24 +61,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/_25sdp">
 
-                    <ToggleButton
-                        android:id="@+id/product_like_btn"
-                        android:layout_width="@dimen/_25sdp"
-                        android:layout_height="@dimen/_25sdp"
-                        android:textOff=""
-                        android:textOn=""
-                        android:visibility="gone"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/toggle_ic_favorite" />
 
                     <TextView
-                        android:id="@+id/product_price_webView"
+                        android:id="@+id/seller_mobile"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
-                        android:text="@string/seller_name"
+                        android:text="@string/mobileNumber"
                         android:textColor="@color/black"
                         android:textSize="@dimen/_14sdp"
                         android:layout_toStartOf="@+id/product_like_btn"/>
@@ -85,7 +76,7 @@
                 </RelativeLayout>
 
                 <TextView
-                    android:id="@+id/product_cart_btn"
+                    android:id="@+id/seller_category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/category"
@@ -104,7 +95,7 @@
                 android:layout_marginTop="@dimen/_20sdp">
 
                 <hyogeun.github.com.colorratingbarlib.ColorRatingBar
-                    android:id="@+id/product_rating_bar"
+                    android:id="@+id/seller_rate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:numStars="5"
@@ -126,16 +117,9 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentStart="true">
 
-            <ProgressBar
-                android:id="@+id/product_cover_loader"
-                android:layout_width="@dimen/_100sdp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="start|center_vertical"
-                android:indeterminateTintMode="src_in"
-                android:indeterminateTint="@color/colorPrimaryLight" />
 
             <ImageView
-                android:id="@+id/product_tag_new"
+                android:id="@+id/seller_tag_new"
                 android:layout_width="@dimen/_40sdp"
                 android:layout_height="@dimen/_40sdp"
                 android:src="@drawable/ic_new_tag_ltr"
@@ -148,7 +132,7 @@
                 android:layout_gravity="end">
 
                 <TextView
-                    android:id="@+id/product_tag_sale"
+                    android:id="@+id/seller_tag_sale"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Sale"
@@ -164,7 +148,7 @@
                     android:background="@color/colorAccentBlue" />
 
                 <TextView
-                    android:id="@+id/product_tag_featured"
+                    android:id="@+id/seller_tag_featured"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Featured"
