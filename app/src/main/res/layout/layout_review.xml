@@ -19,17 +19,6 @@
         android:orientation="vertical"
         android:layout_marginStart="10dp">
 
-        <TextView
-            android:id="@+id/author_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:text="@string/product_title"
-            android:textAlignment="viewStart"
-            android:textColor="@color/textColorSecondary"/>
-
         <hyogeun.github.com.colorratingbarlib.ColorRatingBar
             android:id="@+id/author_rating"
             android:layout_width="wrap_content"

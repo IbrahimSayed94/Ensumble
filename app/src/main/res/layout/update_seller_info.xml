@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:textSize="@dimen/_12sdp"
+        android:inputType="textNoSuggestions"
+        android:textColor="@color/textColorSecondary"
+        android:textColorHint="@color/textColorPrimaryDark"
+        android:drawableStart="@drawable/ic_person"
+        android:drawablePadding="@dimen/_10sdp"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:textAlignment="viewStart"
+        android:layout_margin="@dimen/_5sdp"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:hint="@string/seller_name"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:textSize="@dimen/_12sdp"
+        android:inputType="textNoSuggestions"
+        android:textColor="@color/textColorSecondary"
+        android:textColorHint="@color/textColorPrimaryDark"
+        android:drawableStart="@drawable/ic_person"
+        android:drawablePadding="@dimen/_10sdp"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:textAlignment="viewStart"
+        android:layout_margin="@dimen/_5sdp"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:hint="@string/address"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:textSize="@dimen/_12sdp"
+        android:inputType="textNoSuggestions"
+        android:textColor="@color/textColorSecondary"
+        android:textColorHint="@color/textColorPrimaryDark"
+        android:drawableStart="@drawable/ic_person"
+        android:drawablePadding="@dimen/_10sdp"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:textAlignment="viewStart"
+        android:layout_margin="@dimen/_5sdp"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:hint="@string/seller_name"/>
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:textSize="@dimen/_12sdp"
+        android:inputType="textNoSuggestions"
+        android:textColor="@color/textColorSecondary"
+        android:textColorHint="@color/textColorPrimaryDark"
+        android:drawableStart="@drawable/ic_person"
+        android:drawablePadding="@dimen/_10sdp"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_10sdp"
+        android:textAlignment="viewStart"
+        android:layout_margin="@dimen/_5sdp"
+        android:gravity="start|center_vertical"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:hint="@string/seller_name"/>
+
+
+</LinearLayout>
