@@ -101,6 +101,26 @@ tools:context=".view.activity.ProductDetailsActivity">
                 android:background="@color/colorAccentBlue"
                 android:layout_alignBottom="@+id/slider" />
 
+            <TextView
+                android:id="@+id/product_tag_reviews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:text="@string/reviews_ratings"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:textAlignment="viewEnd"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="-12dp"
+                android:background="@color/sunSetOrange"
+                android:layout_alignBottom="@+id/slider"
+                android:layout_alignParentEnd="true"
+                />
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -267,6 +287,8 @@ tools:context=".view.activity.ProductDetailsActivity">
             </RelativeLayout>
         </LinearLayout>
 
+
+
         <androidx.cardview.widget.CardView
             android:id="@+id/seller_div"
             android:layout_width="match_parent"
@@ -335,6 +357,8 @@ tools:context=".view.activity.ProductDetailsActivity">
             </RelativeLayout>
 
         </androidx.cardview.widget.CardView>
+
+
 
     </LinearLayout>
 

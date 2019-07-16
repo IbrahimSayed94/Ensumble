@@ -31,7 +31,7 @@
     <string name="price">السعر</string>
     <string name="product_title">عنوان المنتج</string>
     <string name="category">الفئه</string>
-    <string name="reviews_ratings">متابعة كضيف</string>
+    <string name="reviews_ratings">التقيمات</string>
     <string name="quantity">الكميه</string>
     <string name="total_price">السعر الكلى</string>
     <string name="view_store">عرض المتجر</string>
@@ -90,4 +90,12 @@
     <string name="phone">موبايل</string>
     <string name="links">الرابط</string>
     <string name="totalImages">إجمالى الصور : </string>
+    <string name="edit">تعديل</string>
+    <string name="full_name">الاسم بالكامل</string>
+    <string name="your_message">رسالتك</string>
+    <string name="rate_now">قيم الأن</string>
+    <string name="rate_product">قيم المنتج</string>
+    <string name="date">التاريخ</string>
+    <string name="description">الوصف</string>
+    <string name="noRatingFounds">لا يوجد تقييمات</string>
 </resources>

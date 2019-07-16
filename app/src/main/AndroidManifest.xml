@@ -10,18 +10,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.AddProductActivity"
-            android:screenOrientation="portrait"
-            ></activity>
-        <activity android:name=".view.activity.SellerProfileActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".view.activity.SellerDetailsActivity"
-            android:screenOrientation="portrait"
-            />
-        <activity android:name=".view.activity.SellersActivity"
-            android:screenOrientation="portrait"
-            />
+        <activity android:name=".view.activity.EnterRateActivity"></activity>
+        <activity android:name=".view.activity.SellerReviewActivity" />
+        <activity android:name=".view.activity.ProductReviewsActivity" />
+        <activity
+            android:name=".view.activity.AddProductActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.SellerProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.SellerDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".view.activity.SellersActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".view.activity.LoginActivity"
             android:screenOrientation="portrait" />
@@ -41,7 +44,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.zfdang.multiple_images_selector.ImagesSelectorActivity"
             android:configChanges="orientation|screenSize" />
