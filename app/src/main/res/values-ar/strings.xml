@@ -90,4 +90,13 @@
     <string name="phone">موبايل</string>
     <string name="links">الرابط</string>
     <string name="totalImages">إجمالى الصور : </string>
+    <string name="date">التاريخ</string>
+    <string name="description">الوصف</string>
+    <string name="edit">تعديل</string>
+    <string name="edit_profile">تعديل الصفحه الشخصيه</string>
+    <string name="full_name">الاسم الكامل</string>
+    <string name="info">معلومات</string>
+    <string name="rate_now">اضف تقييمك</string>
+    <string name="rate_product">اضف تقييمك للمنتج</string>
+    <string name="your_message">رسالتك</string>
 </resources>

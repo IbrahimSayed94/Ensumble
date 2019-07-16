@@ -76,7 +76,7 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_logout"
+        android:id="@+id/btn_upload"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_30sdp"
         android:text="@string/upload_product"

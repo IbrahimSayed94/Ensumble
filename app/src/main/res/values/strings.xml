@@ -98,5 +98,8 @@
     <string name="date">Date</string>
     <string name="description">Description</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="info">Info</string>
+    <string name="facebook_link">Facebook Link</string>
+    <string name="instagram_link">Instagram Link</string>
 
 </resources>
