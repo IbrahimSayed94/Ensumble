@@ -98,6 +98,8 @@ public class ProductsResponse extends BaseResponse
         private String newX;
         @Nullable
         private List<UserBean> user;
+        @Nullable
+        private  Image image;
 
 
         public int getId() {
@@ -288,6 +290,15 @@ public class ProductsResponse extends BaseResponse
             this.user = user;
         }
 
+        @Nullable
+        public Image getImage() {
+            return image;
+        }
+
+        public void setImage(@Nullable Image image) {
+            this.image = image;
+        }
+
         public static class UserBean {
             /**
              * id : 1
@@ -338,6 +349,21 @@ public class ProductsResponse extends BaseResponse
 
             public void setPhone(@Nullable String phone) {
                 this.phone = phone;
+            }
+        }
+
+        public static class Image
+        {
+            @Nullable
+            private String img;
+
+            @Nullable
+            public String getImg() {
+                return img;
+            }
+
+            public void setImg(@Nullable String img) {
+                this.img = img;
             }
         }
     }

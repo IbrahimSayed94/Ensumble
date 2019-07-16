@@ -99,11 +99,18 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
 
         final  ProductsResponse.ProductsBean productsBean= productList.get(position);
 
-        Glide.with(context)
-                .load(Constant.PRODUCT_IMAGE_URL+productsBean.getImg())
-                .fitCenter()
-                .placeholder(context.getDrawable(R.drawable.placeholder))
-                .into(holder.product_cover);
+        try {
+            Glide.with(context)
+                    .load(Constant.PRODUCT_IMAGE_URL+productsBean.getImage().getImg())
+                    .fitCenter()
+                    .placeholder(context.getDrawable(R.drawable.placeholder))
+                    .into(holder.product_cover);
+        }
+        catch (Exception e)
+        {
+
+        }
+
 
         if(productsBean.getNewX().equals("1"))
             holder.product_tag_new.setVisibility(View.VISIBLE);

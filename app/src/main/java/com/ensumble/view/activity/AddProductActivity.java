@@ -79,7 +79,7 @@ public class AddProductActivity extends AppCompatActivity {
 
     String price=""  , sale="" , arabicTitle="" , englistTitle="" , arabicDescription="" , englishDescription="";
 
-    List<File> fileList=new ArrayList<>();
+    ArrayList<File> fileList=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -239,6 +239,7 @@ public class AddProductActivity extends AppCompatActivity {
         for(String uri : mResults)
         {
             fileList.add(new File(uri));
+            Log.e("QP","uri : "+uri);
         }
 
         if(price.equals("") || sale.equals("") || arabicTitle.equals("")
@@ -254,6 +255,8 @@ public class AddProductActivity extends AppCompatActivity {
 
     private void uploadProduct()
     {
+
+        Log.e("QP","images : "+fileList.size());
         progress = new CustomDialogProgress();
         progress.init(this);
         handler = new Handler() {
@@ -266,7 +269,7 @@ public class AddProductActivity extends AppCompatActivity {
         };
         progress.show();
         AndroidNetworking.upload(Constant.BASE_URL+"Store_Product")
-                .addMultipartFileList("images",fileList)
+                .addMultipartFileList("images[]",fileList)
                 .addMultipartParameter("ar_title", arabicTitle)
                 .addMultipartParameter("en_title", englistTitle)
                 .addMultipartParameter("ar_description", arabicDescription)
@@ -290,10 +293,12 @@ public class AddProductActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(BaseResponse response) {
 
+
                         progress.dismiss();
                         if(response.getCode().equals("200"))
                         {
-                          Toast.makeText(getApplicationContext(),getString(R.string.successfullyDone),Toast.LENGTH_LONG).show();
+                          Toast.makeText(getApplicationContext(),getString(R.string.successfullyDone)+"\n"+
+                                  "count : "+response.getCounts()+" : check : "+response.getCheck(),Toast.LENGTH_LONG).show();
                         }
                         else
                         {
