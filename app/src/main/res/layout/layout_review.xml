@@ -23,13 +23,12 @@
             android:id="@+id/review_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxLines="1"
-            android:textSize="16sp"
+            android:layout_marginTop="2dp"
+            android:textSize="12sp"
+            android:text="@string/date"
             android:textStyle="bold"
-            android:text="@string/product_title"
             android:textAlignment="viewStart"
-            android:textColor="@color/textColorSecondary"/>
-
+            android:textColor="@color/black" />
         <hyogeun.github.com.colorratingbarlib.ColorRatingBar
             android:id="@+id/review_user_rate"
             android:layout_width="wrap_content"

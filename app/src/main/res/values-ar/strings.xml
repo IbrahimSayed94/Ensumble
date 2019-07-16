@@ -98,4 +98,6 @@
     <string name="date">التاريخ</string>
     <string name="description">الوصف</string>
     <string name="noRatingFounds">لا يوجد تقييمات</string>
+    <string name="rateSeller">قيم البائع</string>
+    <string name="edit_profile">تعديل</string>
 </resources>

@@ -14,9 +14,7 @@
         layout="@layout/toolbar"
         />
 
-    <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -29,7 +27,7 @@
             android:orientation="vertical" >
 
             <hyogeun.github.com.colorratingbarlib.ColorRatingBar
-                android:id="@+id/dialog_rating_bar"
+                android:id="@+id/rating_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:numStars="5"
@@ -40,40 +38,11 @@
                 app:empty_color="@color/colorAccentGrey"
                 app:progress_color="@android:color/holo_orange_light" />
 
+
             <EditText
-                android:id="@+id/dialog_author_name"
+                android:id="@+id/edit_message"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/input_field_height"
-                android:hint="@string/full_name"
-                android:inputType="textNoSuggestions"
-                android:textColor="@color/textColorSecondaryLight"
-                android:textColorHint="@color/textColorPrimaryDark"
-                android:drawableStart="@drawable/ic_person"
-                android:drawablePadding="15dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:gravity="center_vertical"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/rounded_corners_edittext_light" />
-            <EditText
-                android:id="@+id/dialog_author_email"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/input_field_height"
-                android:hint="@string/email_address"
-                android:inputType="textEmailAddress|textNoSuggestions"
-                android:textColor="@color/textColorSecondaryLight"
-                android:textColorHint="@color/textColorPrimaryDark"
-                android:drawableStart="@drawable/ic_email"
-                android:drawablePadding="15dp"
-                android:paddingStart="15dp"
-                android:paddingEnd="15dp"
-                android:gravity="center_vertical"
-                android:layout_marginTop="15dp"
-                android:background="@drawable/rounded_corners_edittext_light" />
-            <EditText
-                android:id="@+id/dialog_author_message"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/input_field_height"
+                android:layout_height="@dimen/_100sdp"
                 android:hint="@string/your_message"
                 android:inputType="textMultiLine"
                 android:textColor="@color/textColorSecondaryLight"
@@ -82,8 +51,7 @@
                 android:drawablePadding="15dp"
                 android:paddingStart="15dp"
                 android:paddingEnd="15dp"
-                android:minLines="10"
-                android:maxLines="20"
+                android:maxLines="10"
                 android:gravity="center_vertical"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/rounded_corners_edittext_light" />
@@ -97,7 +65,7 @@
             android:padding="10dp" >
 
             <Button
-                android:id="@+id/dialog_button"
+                android:id="@+id/button_rate"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:text="@string/rate_now"

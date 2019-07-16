@@ -207,11 +207,11 @@
 
 
     <Button
-        android:id="@+id/rate_product"
+        android:id="@+id/rate_seller"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_weight="0"
-        android:text="@string/rate_product"
+        android:text="@string/rateSeller"
         android:textAllCaps="true"
         android:textSize="16sp"
         android:textColor="@color/white"

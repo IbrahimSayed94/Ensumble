@@ -98,5 +98,7 @@
     <string name="date">Date</string>
     <string name="description">Description</string>
     <string name="noRatingFounds">No rating found</string>
+    <string name="rateSeller">Rate seller</string>
+    <string name="edit_profile">Edit</string>
 
 </resources>

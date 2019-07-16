@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -33,6 +34,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class ProductReviewsActivity extends AppCompatActivity {
@@ -187,4 +189,14 @@ public class ProductReviewsActivity extends AppCompatActivity {
                     }
                 });
     } // function of getReviews
+
+    @OnClick(R.id.rate_product)
+    public void rateProductButton()
+    {
+
+        Intent intent = new Intent(getApplicationContext(),EnterRateActivity.class);
+        intent.putExtra("type","product");
+        intent.putExtra("id",productId);
+        startActivity(intent);
+    } // function of rateProductButton
 } // class of ProductReviewsActivity
