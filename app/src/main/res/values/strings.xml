@@ -27,7 +27,7 @@
     <string name="price">price</string>
     <string name="product_title">Product Title</string>
     <string name="category">Category</string>
-    <string name="reviews_ratings">Ratings and Reviews</string>
+    <string name="reviews_ratings">Reviews</string>
     <string name="quantity">Quantity</string>
     <string name="total_price">Total Price</string>
     <string name="addToCart">Add to cart</string>
@@ -97,7 +97,9 @@
     <string name="rate_product">Rate Product</string>
     <string name="date">Date</string>
     <string name="description">Description</string>
-    <string name="edit_profile">Edit Profile</string>
+    <string name="noRatingFounds">No rating found</string>
+    <string name="rateSeller">Rate seller</string>
+    <string name="edit_profile">Edit</string>
     <string name="info">Info</string>
     <string name="facebook_link">Facebook Link</string>
     <string name="instagram_link">Instagram Link</string>

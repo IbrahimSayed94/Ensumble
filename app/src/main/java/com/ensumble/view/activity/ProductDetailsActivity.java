@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -324,5 +325,14 @@ public class ProductDetailsActivity extends AppCompatActivity {
         intent.putExtra("flag","homeFragment");
         startActivity(intent);
         finish();
-    }
+    } // function of onBackPressed
+
+    @OnClick(R.id.product_tag_reviews)
+    public void reviewClick()
+    {
+         Intent intent = new Intent(getApplicationContext(),ProductReviewsActivity.class);
+        Log.e("QP","product id details"+productId);
+         intent.putExtra("id",productId);
+         startActivity(intent);
+    } // function of reviewClick
 } // function of ProductDetailsActivity

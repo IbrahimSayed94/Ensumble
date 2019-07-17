@@ -160,4 +160,14 @@ public class SellerDetailsActivity extends AppCompatActivity {
         intent.putExtra("id",sellerId);
         startActivity(intent);
     } // function of seller_more_info
+
+
+    @OnClick(R.id.seller_rate)
+    public void rateClick()
+    {
+        Intent intent=new Intent(getApplicationContext(),SellerReviewActivity.class);
+        intent.putExtra("id",sellerId);
+        startActivity(intent);
+    } // function of rareClick
+
 } // class of SellerDetailsActivity

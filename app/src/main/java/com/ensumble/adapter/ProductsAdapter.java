@@ -154,6 +154,8 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
         holder.product_cover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.e("QP","product id"+productsBean.getId());
+
                 Intent intent = new Intent(context, ProductDetailsActivity.class);
                 intent.putExtra("id",productsBean.getId());
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
