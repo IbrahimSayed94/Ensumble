@@ -2,6 +2,8 @@ package com.ensumble.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -16,6 +18,7 @@ import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.ensumble.AppConfig.Constant;
 import com.ensumble.AppConfig.CustomDialogProgress;
 import com.ensumble.AppConfig.CustomToolBar;
+import com.ensumble.AppConfig.MyContextWrapper;
 import com.ensumble.Model.BaseResponse;
 import com.ensumble.Model.ProductReviewsResponse;
 import com.ensumble.PefManager.PrefUser;
@@ -24,6 +27,7 @@ import com.ensumble.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class EnterRateActivity extends AppCompatActivity {
 
@@ -192,6 +196,12 @@ public class EnterRateActivity extends AppCompatActivity {
                     }
                 });
     } // function of rateSeller
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        SharedPreferences sharedPreferences = newBase.getSharedPreferences("user",MODE_PRIVATE);
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(new MyContextWrapper(newBase).wrap(sharedPreferences.getString("language","ar"))));
+    }// apply fonts
 
 
 } // class of EnterRateActivity

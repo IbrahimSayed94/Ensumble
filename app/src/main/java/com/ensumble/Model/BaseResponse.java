@@ -9,7 +9,29 @@ public class BaseResponse
     private String code;
     @Nullable
     private String Status;
+    @Nullable
+    private String check;
+    @Nullable
+    private String counts;
 
+
+    @Nullable
+    public String getCheck() {
+        return check;
+    }
+
+    public void setCheck(@Nullable String check) {
+        this.check = check;
+    }
+
+    @Nullable
+    public String getCounts() {
+        return counts;
+    }
+
+    public void setCounts(@Nullable String counts) {
+        this.counts = counts;
+    }
 
     @Nullable
     public String getCode() {
