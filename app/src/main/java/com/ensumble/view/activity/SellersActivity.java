@@ -50,6 +50,7 @@ public class SellersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sellers);
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
+        toolBar.setTitle(getString(R.string.sellers));
 
         getId();
         getSellers();

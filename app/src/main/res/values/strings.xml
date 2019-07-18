@@ -8,6 +8,7 @@
         <item name="language_img">@drawable/ic_shopping_cart</item>
         <item name="language_img">@drawable/ic_add_product</item>
         <item name="language_img">@drawable/ic_language</item>
+        <item name="language_img">@drawable/ic_logout</item>
     </array>
 
     <string-array name="navigation_menu_items">
@@ -16,6 +17,7 @@
         <item name="categories">Categories</item>
         <item name="addProduct">Add Product</item>
         <item name="language">عربى</item>
+        <item name="logout">Logout</item>
     </string-array>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -100,5 +102,16 @@
     <string name="noRatingFounds">No rating found</string>
     <string name="rateSeller">Rate seller</string>
     <string name="edit_profile">Edit</string>
+
+    <!-- toolbar titles -->
+    <string name="addProduct">Add product</string>
+    <string name="enterRate">Enter rate</string>
+    <string name="home">Home</string>
+    <string name="productDetails">Product details</string>
+    <string name="productRate">Product rate</string>
+    <string name="sellerRate">Seller rate</string>
+    <string name="sellerDetails">Seller details</string>
+    <string name="sellerProfile">Seller profile</string>
+    <string name="sellers">Sellers</string>
 
 </resources>

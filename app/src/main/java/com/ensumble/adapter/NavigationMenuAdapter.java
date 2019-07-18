@@ -16,8 +16,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
 import com.ensumble.view.activity.AddProductActivity;
+import com.ensumble.view.activity.LoginActivity;
 import com.ensumble.view.activity.MainActivity;
 import com.ensumble.view.fragment.HomeFragment;
 import com.ensumble.view.fragment.MyFavoriteFragment;
@@ -95,6 +97,9 @@ public class NavigationMenuAdapter extends RecyclerView.Adapter<NavigationMenuAd
                     case 4: // language
                         changeLanguage();
                         break;
+                    case 5: // logOut
+                        logOut();
+                        break;
                 }
 
                 drawerLayout.closeDrawers();
@@ -127,6 +132,16 @@ public class NavigationMenuAdapter extends RecyclerView.Adapter<NavigationMenuAd
         context.startActivity(intent);
         ((Activity) context).finish();
     } // function of changeLanguage
+
+
+    private void logOut()
+    {
+        PrefUser.setLogin(context,false);
+        Intent intent = new Intent(context, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); // To clean up all activities
+        context.startActivity(intent);
+        ((Activity)context).finish();
+    } // function of logOut
 
 
 }

@@ -9,6 +9,7 @@
         <item name="language_img">@drawable/ic_shopping_cart</item>
         <item name="language_img">@drawable/ic_add_product</item>
         <item name="language_img">@drawable/ic_language</item>
+        <item name="language_img">@drawable/ic_logout</item>
     </array>
 
     <string-array name="navigation_menu_items">
@@ -17,6 +18,7 @@
         <item name="categories">الفئات</item>
         <item name="addProduct">أضف منتج</item>
         <item name="language">English</item>
+        <item name="logout">تسجيل الخروج</item>
     </string-array>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -100,4 +102,15 @@
     <string name="noRatingFounds">لا يوجد تقييمات</string>
     <string name="rateSeller">قيم البائع</string>
     <string name="edit_profile">تعديل</string>
+
+    <!-- toolbar titles -->
+    <string name="addProduct">أضف منتج</string>
+    <string name="enterRate">أضف تقييم</string>
+    <string name="home">الرئيسية</string>
+    <string name="productDetails">تفاصيل المنتج</string>
+    <string name="productRate">تقييم المنتج</string>
+    <string name="sellerRate">تقييم البائع</string>
+    <string name="sellerDetails">تفاصيل البائع</string>
+    <string name="sellerProfile">تفاصيل البائع</string>
+    <string name="sellers">البائع</string>
 </resources>

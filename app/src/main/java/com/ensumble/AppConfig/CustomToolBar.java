@@ -7,6 +7,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import android.view.View;
+import android.widget.TextView;
 
 import com.ensumble.R;
 
@@ -16,6 +17,8 @@ public class CustomToolBar {
 
 
     DrawerLayout drawer_layout;
+
+    TextView  txt_toolbarTitle;
 
     public CustomToolBar() {
     }
@@ -31,6 +34,7 @@ public class CustomToolBar {
     private void initToolBar() {
         toolbar = activity.findViewById(R.id.tool_bar);
         drawer_layout = activity.findViewById(R.id.drawer_layout);
+        txt_toolbarTitle = activity.findViewById(R.id.txt_toolbarTitle);
         ((AppCompatActivity) (activity)).setSupportActionBar(toolbar);
         ActionBar actionBar = ((AppCompatActivity) (activity)).getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
@@ -55,4 +59,9 @@ public class CustomToolBar {
             }
         }
     } // function of initToolBar
+
+    public void setTitle(String title)
+    {
+        txt_toolbarTitle.setText(title);
+    } // function of setTitle
 } // class of CustomToolBar

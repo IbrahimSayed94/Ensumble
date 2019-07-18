@@ -75,6 +75,7 @@ public class ProductReviewsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_reviews);
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
+        toolBar.setTitle(getString(R.string.productRate));
 
 
         getData();

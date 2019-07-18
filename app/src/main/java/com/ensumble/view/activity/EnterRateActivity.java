@@ -54,6 +54,7 @@ public class EnterRateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_enter_rate);
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
+        toolBar.setTitle(getString(R.string.enterRate));
 
 
         getData();
