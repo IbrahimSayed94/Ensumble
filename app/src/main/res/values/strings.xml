@@ -103,6 +103,9 @@
     <string name="rateSeller">Rate seller</string>
     <string name="edit_profile">Edit</string>
 
+    <string name="search_hint">Search</string>
+    <string name="noSearchResults">No search results</string>
+
     <!-- toolbar titles -->
     <string name="addProduct">Add product</string>
     <string name="enterRate">Enter rate</string>

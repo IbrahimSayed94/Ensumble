@@ -14,4 +14,13 @@
         <item name="colorControlNormal">@color/white</item>
     </style>
 
+    <style name="SearchViewStyle" parent="AppTheme">
+        <item name="colorControlActivated">@color/colorAccent</item>
+        <item name="searchIcon">@drawable/ic_search_black_24dp</item>
+        <item name="queryHint">@string/search_hint</item>
+        <item name="android:textSize">@dimen/_10sdp</item>
+        <item name="android:textColorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:textColorHint">@color/colorPrimary</item>
+    </style>
+
 </resources>

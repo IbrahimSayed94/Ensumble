@@ -103,6 +103,9 @@
     <string name="rateSeller">قيم البائع</string>
     <string name="edit_profile">تعديل</string>
 
+    <string name="search_hint">ابحث</string>
+    <string name="noSearchResults">لا يوجد نتائج بحث</string>
+
     <!-- toolbar titles -->
     <string name="addProduct">أضف منتج</string>
     <string name="enterRate">أضف تقييم</string>
