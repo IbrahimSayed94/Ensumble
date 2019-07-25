@@ -19,6 +19,7 @@ public class PrefUser
     private static final String MOBILE = "mobile" ;
     private static final String ADDRESS = "address" ;
     private static final String USER_ID = "userId" ;
+    private static final String USER_IMAGE = "userImage" ;
 
 
     public static SharedPreferences getPref(Context context) {
@@ -105,6 +106,18 @@ public class PrefUser
     public static String getAddress(Context context)
     {
         return getPref(context).getString(ADDRESS,"");
+    }
+
+    ///////////////////////////////////
+
+    public static void setUserImage(Context context,String image)
+    {
+        getPref(context).edit().putString(USER_IMAGE,image).apply();
+    }
+
+    public static String getUserImage(Context context)
+    {
+        return getPref(context).getString(USER_IMAGE,"");
     }
 
 }

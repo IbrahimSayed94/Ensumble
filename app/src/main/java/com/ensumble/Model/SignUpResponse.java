@@ -49,7 +49,17 @@ public class SignUpResponse extends BaseResponse
         private String id;
         @Nullable
         private String address;
+        @Nullable
+        private  String img;
 
+        @Nullable
+        public String getImg() {
+            return img;
+        }
+
+        public void setImg(@Nullable String img) {
+            this.img = img;
+        }
 
         @Nullable
         public String getAddress() {
