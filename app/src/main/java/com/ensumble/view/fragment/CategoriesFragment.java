@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,11 +21,10 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.ensumble.AppConfig.Constant;
 import com.ensumble.AppConfig.CustomDialogProgress;
-import com.ensumble.Model.ProductsResponse;
-import com.ensumble.Model.SellerCategoriesResponse;
-import com.ensumble.PefManager.PrefUser;
+import com.ensumble.Model.CategoryResponse;
+import com.ensumble.Model.CategoryResponse;
 import com.ensumble.R;
-import com.ensumble.adapter.ProductsAdapter;
+import com.ensumble.adapter.CategoryAdapter;
 import com.ensumble.adapter.SellerCategoryAdapter;
 
 import java.util.List;
@@ -34,7 +32,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SellerCategoriesFragment extends Fragment
+public class CategoriesFragment extends Fragment
 {
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
@@ -48,10 +46,10 @@ public class SellerCategoriesFragment extends Fragment
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_seller_categories, container, false);
+        View view = inflater.inflate(R.layout.fragment_category, container, false);
         ButterKnife.bind(this, view);
 
-        getSellerCategories();
+        getCategories();
 
         return view;
     } // function of onCreateView
@@ -69,16 +67,16 @@ public class SellerCategoriesFragment extends Fragment
     } // function of onCreate
 
 
-    private void initSellerCategoryList(List<SellerCategoriesResponse.DataBean> categoryList)
+    private void initCategoriesList(List<CategoryResponse.DataBean> categoryList)
     {
-        SellerCategoryAdapter adapter=new SellerCategoryAdapter(context,categoryList);
+        CategoryAdapter adapter=new CategoryAdapter(context,categoryList,"category");
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
-    } // fnction of initSellerCategoryList
+    } // fnction of initCategoriesList
 
-    private void getSellerCategories()
+    private void getCategories()
     {
         progress = new CustomDialogProgress();
         progress.init(getContext());
@@ -91,19 +89,19 @@ public class SellerCategoriesFragment extends Fragment
 
         };
         progress.show();
-        AndroidNetworking.get(Constant.BASE_URL+"CategoriesOfCompany")
+        AndroidNetworking.get(Constant.BASE_URL+"Categories")
                 .setPriority(Priority.MEDIUM)
                 .build()
-                .getAsObject(SellerCategoriesResponse.class, new ParsedRequestListener<SellerCategoriesResponse>() {
+                .getAsObject(CategoryResponse.class, new ParsedRequestListener<CategoryResponse>() {
 
                     @Override
-                    public void onResponse(SellerCategoriesResponse response) {
+                    public void onResponse(CategoryResponse response) {
                         progress.dismiss();
 
                         if(response.getCode().equals("200"))
                         {
-                          if(response.getData().size() > 0)
-                              initSellerCategoryList(response.getData());
+                            if(response.getData().size() > 0)
+                                initCategoriesList(response.getData());
                         }
                         else
                         {
@@ -118,6 +116,7 @@ public class SellerCategoriesFragment extends Fragment
                         Toast.makeText(getContext(),getString(R.string.api_failure_message),Toast.LENGTH_LONG).show();
                     }
                 });
-    } // function of getSellerCategories
+    } // function of getCategories
 
-} // class of SellerCategoriesFragment
+
+} // class of CategoryiesFragment

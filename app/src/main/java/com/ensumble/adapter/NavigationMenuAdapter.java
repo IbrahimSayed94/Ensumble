@@ -21,6 +21,7 @@ import com.ensumble.R;
 import com.ensumble.view.activity.AddProductActivity;
 import com.ensumble.view.activity.LoginActivity;
 import com.ensumble.view.activity.MainActivity;
+import com.ensumble.view.fragment.CategoriesFragment;
 import com.ensumble.view.fragment.HomeFragment;
 import com.ensumble.view.fragment.MyFavoriteFragment;
 import com.ensumble.view.fragment.SellerCategoriesFragment;
@@ -86,18 +87,22 @@ public class NavigationMenuAdapter extends RecyclerView.Adapter<NavigationMenuAd
                         ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container, new MyFavoriteFragment()).commit();
                         break;
-                    case 2: // seller categories
+                    case 2: // stores
                         ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container, new SellerCategoriesFragment()).commit();
                         break;
-                    case 3: // seller categories
+                    case 3: // categories
+                        ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, new CategoriesFragment()).commit();
+                        break;
+                    case 4: // Add Category
                        Intent intent1 = new Intent(context, AddProductActivity.class);
                        context.startActivity(intent1);
                         break;
-                    case 4: // language
+                    case 5: // language
                         changeLanguage();
                         break;
-                    case 5: // logOut
+                    case 6: // logOut
                         logOut();
                         break;
                 }

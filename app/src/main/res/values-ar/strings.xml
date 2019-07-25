@@ -6,6 +6,7 @@
     <array name="nav_drawables_list">
         <item name="home_img">@drawable/ic_home</item>
         <item name="language_img">@drawable/ic_favorite_menu</item>
+        <item name="language_img">@drawable/ic_store_black_24dp</item>
         <item name="language_img">@drawable/ic_shopping_cart</item>
         <item name="language_img">@drawable/ic_add_product</item>
         <item name="language_img">@drawable/ic_language</item>
@@ -15,6 +16,7 @@
     <string-array name="navigation_menu_items">
         <item name="home">الرئيسية</item>
         <item name="favorite">المفضلة</item>
+        <item name="companyCategory">المتاجر</item>
         <item name="categories">الفئات</item>
         <item name="addProduct">أضف منتج</item>
         <item name="language">English</item>
@@ -105,6 +107,7 @@
 
     <string name="search_hint">ابحث</string>
     <string name="noSearchResults">لا يوجد نتائج بحث</string>
+    <string name="notFound">لا يوجد</string>
 
     <!-- toolbar titles -->
     <string name="addProduct">أضف منتج</string>
@@ -116,4 +119,6 @@
     <string name="sellerDetails">تفاصيل البائع</string>
     <string name="sellerProfile">تفاصيل البائع</string>
     <string name="sellers">البائع</string>
+    <string name="categories">الأقسام</string>
+    <string name="products">المنتجات</string>
 </resources>
