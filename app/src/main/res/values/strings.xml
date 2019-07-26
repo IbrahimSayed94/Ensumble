@@ -109,6 +109,9 @@
     <string name="noSearchResults">No search results</string>
     <string name="notFound">Not found</string>
 
+    <string name="color">Color</string>
+    <string name="size">Size</string>
+
     <!-- toolbar titles -->
     <string name="addProduct">Add product</string>
     <string name="enterRate">Enter rate</string>

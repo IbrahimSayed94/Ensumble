@@ -7,6 +7,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.widget.ImageView;
+import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
@@ -21,6 +24,7 @@ import com.ensumble.AppConfig.MyContextWrapper;
 import com.ensumble.Model.SellerDetailsResponse;
 import com.ensumble.R;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -34,6 +38,26 @@ public class SellerProfileActivity extends AppCompatActivity {
     //progress
     CustomDialogProgress progress;
     Handler handler;
+
+
+    @BindView(R.id.seller_image)
+    ImageView seller_image;
+
+    @BindView(R.id.seller_name)
+    TextView seller_name;
+
+    @BindView(R.id.seller_rate)
+    RatingBar seller_rate;
+
+    @BindView(R.id.seller_category)
+    TextView seller_category;
+    @BindView(R.id.seller_countRate)
+    TextView seller_countRate;
+    @BindView(R.id.seller_mobile)
+    TextView seler_mobile;
+    @BindView(R.id.seller_address)
+    TextView seller_address;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +67,7 @@ public class SellerProfileActivity extends AppCompatActivity {
         toolBar.setTitle(getString(R.string.sellerProfile));
 
         getId();
-        //getSellerDetails();
+        getSellerDetails();
 
     } // function of onCreate
 
@@ -65,13 +89,18 @@ public class SellerProfileActivity extends AppCompatActivity {
 
     private void setSellerData(SellerDetailsResponse object)
     {
-       /* seller_name.setText(object.getUser().getName());
+        seller_name.setText(object.getUser().getName());
         seller_rate.setRating(object.getUser().getRate());
 
         Glide.with(this)
                 .load(Constant.USER_IMAGE_URL+object.getUser().getImg())
                 .placeholder(R.drawable.placeholder)
-                .into(seller_image);*/
+                .into(seller_image);
+
+        seller_address.setText("");
+        seller_category.setText("");
+        seler_mobile.setText(object.getUser().getPhone()+"");
+        seller_countRate.setText("");
 
     } // function of setSellerData
 

@@ -11,8 +11,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
@@ -83,6 +85,12 @@ public class ProductDetailsActivity extends AppCompatActivity {
     int  countProduct = 1;
     double singlePrice = 0 , totalPrice=0;
 
+    @BindView(R.id.sp_color)
+    Spinner sp_color;
+    @BindView(R.id.sp_size)
+    Spinner sp_size;
+
+    int sellerId=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +122,9 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
 
     private void setProductDetailsData(ProductDetailsResponse.ProductBean object) {
+
+
+        sellerId = object.getUser().get(0).getId();
 
         imageSlider(object.getImages());
 
@@ -165,7 +176,26 @@ public class ProductDetailsActivity extends AppCompatActivity {
                 .fitCenter()
                 .into(product_seller_image);
 
+
+        setColorSpinnerData(object.getColors());
+        setSizeSpinnerData(object.getSize());
+
+
     } // function of setProductDetailsData
+
+
+    private void setColorSpinnerData(List<String> colorList)
+    {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.spinner_text,colorList);
+        sp_color.setAdapter(adapter);
+    } // function of setColorSpinnerData
+
+
+    private void setSizeSpinnerData(List<String> sizeList)
+    {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.spinner_text,sizeList);
+        sp_size.setAdapter(adapter);
+    } // function of setSizeSpinnerData
 
 
     private void getProductDetails() {
@@ -336,4 +366,13 @@ public class ProductDetailsActivity extends AppCompatActivity {
          intent.putExtra("id",productId);
          startActivity(intent);
     } // function of reviewClick
+
+    @OnClick(R.id.store_btn)
+    public void storeClick()
+    {
+        Intent intent = new Intent(getApplicationContext(), SellerDetailsActivity.class);
+        intent.putExtra("id",sellerId);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    } // function of storeClick
 } // function of ProductDetailsActivity

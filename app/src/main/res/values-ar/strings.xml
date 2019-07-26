@@ -109,6 +109,9 @@
     <string name="noSearchResults">لا يوجد نتائج بحث</string>
     <string name="notFound">لا يوجد</string>
 
+    <string name="color">اللون</string>
+    <string name="size">المقاس</string>
+
     <!-- toolbar titles -->
     <string name="addProduct">أضف منتج</string>
     <string name="enterRate">أضف تقييم</string>
