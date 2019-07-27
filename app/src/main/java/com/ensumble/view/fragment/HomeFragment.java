@@ -100,7 +100,7 @@ public class HomeFragment extends Fragment
 
         };
         progress.show();
-        AndroidNetworking.get(Constant.BASE_URL+"Categories")
+        AndroidNetworking.get(Constant.BASE_URL+"CategoriesOfHome")
                 .setPriority(Priority.MEDIUM)
                 .build()
                 .getAsObject(HomeCategoriesResponse.class, new ParsedRequestListener<HomeCategoriesResponse>() {

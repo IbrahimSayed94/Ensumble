@@ -96,8 +96,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
-                            android:text="20"
+                            android:text=""
                             android:textSize="@dimen/_16sdp"
+                            android:id="@+id/seller_countRate"
                             />
                     </RelativeLayout>
 
@@ -118,7 +119,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:maxLines="1"
-                            android:text="Catogries"
+                            android:text=""
+                            android:id="@+id/seller_category"
                             android:layout_alignParentEnd="true"
                             android:textSize="@dimen/_14sdp"/>
                     </RelativeLayout>
@@ -134,9 +136,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="adad dasdasd dasdasd asdaskdjalk dashdasjdhkaj "
+                        android:layout_alignParentStart="true"
                         android:layout_marginStart="@dimen/_10sdp"
-                        android:textSize="@dimen/_14sdp"/>
+                        android:text="Egypt"
+                        android:id="@+id/seller_address"
+                        android:textSize="@dimen/_14sdp" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -150,7 +154,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="01011154698"
+                        android:text=""
+                        android:id="@+id/seller_mobile"
                         android:textSize="@dimen/_14sdp"
                         android:layout_marginStart="@dimen/_10sdp"
                         />

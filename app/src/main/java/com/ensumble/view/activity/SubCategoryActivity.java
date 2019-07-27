@@ -19,11 +19,9 @@ import com.ensumble.AppConfig.Constant;
 import com.ensumble.AppConfig.CustomDialogProgress;
 import com.ensumble.AppConfig.CustomToolBar;
 import com.ensumble.AppConfig.MyContextWrapper;
-import com.ensumble.Model.SellerCategoriesResponse;
-import com.ensumble.Model.SellersResponse;
+import com.ensumble.Model.CategoryResponse;
 import com.ensumble.R;
-import com.ensumble.adapter.SellerCategoryAdapter;
-import com.ensumble.adapter.SellersAdapter;
+import com.ensumble.adapter.CategoryAdapter;
 
 import java.util.List;
 
@@ -31,40 +29,34 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class SellersActivity extends AppCompatActivity {
+public class SubCategoryActivity extends AppCompatActivity {
 
 
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
-    int categoryId=0;
-
     //progress
     CustomDialogProgress progress;
     Handler handler;
 
+    int subCategoryId=0;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sellers);
+        setContentView(R.layout.activity_sub_category);
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
-        toolBar.setTitle(getString(R.string.sellers));
+        toolBar.setTitle(getString(R.string.categories));
+
 
         getId();
-        getSellers();
+
+        getCategories();
 
     } // function of onCreate
-
-
-    private void getId()
-    {
-        if(getIntent() != null)
-        {
-            categoryId = getIntent().getIntExtra("id",0);
-        }
-    } // funciton of getId
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -72,16 +64,25 @@ public class SellersActivity extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(new MyContextWrapper(newBase).wrap(sharedPreferences.getString("language","ar"))));
     }// apply fonts
 
-    private void initSellerList(List<SellersResponse.UsersBean> sellerList)
+    private void getId()
     {
-        SellersAdapter adapter=new SellersAdapter(getApplicationContext(),sellerList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+        if(getIntent() != null)
+        {
+            subCategoryId = getIntent().getIntExtra("id",0);
+        }
+    } // funciton of getId
+
+
+    private void initCategoriesList(List<CategoryResponse.DataBean> categoryList)
+    {
+        CategoryAdapter adapter=new CategoryAdapter(getApplicationContext(),categoryList,"subCategory");
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
-    } // fnction of initSellerCategoryList
+    } // fnction of initCategoriesList
 
-    private void getSellers()
+    private void getCategories()
     {
         progress = new CustomDialogProgress();
         progress.init(this);
@@ -94,20 +95,22 @@ public class SellersActivity extends AppCompatActivity {
 
         };
         progress.show();
-        AndroidNetworking.post(Constant.BASE_URL+"CompanyOnCategory")
-                .addBodyParameter("cat_id", String.valueOf(categoryId))
+        AndroidNetworking.post(Constant.BASE_URL+"SubCategories")
+                .addBodyParameter("id", String.valueOf(subCategoryId))
                 .setPriority(Priority.MEDIUM)
                 .build()
-                .getAsObject(SellersResponse.class, new ParsedRequestListener<SellersResponse>() {
+                .getAsObject(CategoryResponse.class, new ParsedRequestListener<CategoryResponse>() {
 
                     @Override
-                    public void onResponse(SellersResponse response) {
+                    public void onResponse(CategoryResponse response) {
                         progress.dismiss();
 
                         if(response.getCode().equals("200"))
                         {
-                            if(response.getUsers().size() > 0)
-                                initSellerList(response.getUsers());
+                            if(response.getData().size() > 0)
+                                initCategoriesList(response.getData());
+                            else
+                                Toast.makeText(getApplicationContext(),getString(R.string.notFound),Toast.LENGTH_LONG).show();
                         }
                         else
                         {
@@ -122,5 +125,5 @@ public class SellersActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),getString(R.string.api_failure_message),Toast.LENGTH_LONG).show();
                     }
                 });
-    } // function of getSellers
-} // class of SellersActivity
+    } // function of getCategories
+} // class of SubCategoryActivity

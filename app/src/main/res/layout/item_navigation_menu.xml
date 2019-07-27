@@ -33,14 +33,14 @@
 
     </LinearLayout>
 
-    <View
+    <!--<View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginEnd="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_5sdp"
         android:layout_marginRight="@dimen/_5sdp"
         android:layout_marginStart="@dimen/_5sdp"
-        android:background="@color/dimGray" />
+        android:background="@color/dimGray" />-->
 
 </LinearLayout>
 

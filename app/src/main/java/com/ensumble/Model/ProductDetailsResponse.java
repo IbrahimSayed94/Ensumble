@@ -10,7 +10,7 @@ public class ProductDetailsResponse extends BaseResponse
 {
 
     /**
-     * Product : {"id":3,"ar_title":"جيبه","en_title":"skirt","ar_description":"شسيشسششششششششششششششششششششششششششسيسشلسيشلشسيشسششششششششششششششششششششششششششسيسشلسيشلشسيشسششششششششششششششششششششششششششسيسشلسيشل","en_description":"شسيشسششششششششششششششششششششششششششسيسشلسيشلشسيشسششششششششششششششششششششششششششسيسشلسيشل","confirm":"1","img":"1561730788.w4.jpg","show":null,"price":"250","sale":"1","salePrice":"150","instack":0,"cat_id":"4","created_by":"5","updated_by":null,"created_at":"2019-06-28 14:06:28","updated_at":"2019-06-28 14:06:28","user":[{"id":5,"name":"admin","img":null}],"favorite":1,"view":1,"date":"2019-06-28","images":[{"id":1,"img":"15613146101.jpg"},{"id":2,"img":"15613146102.jpg"}],"new":1}
+     * Product : {"id":3,"ar_title":"تى شيرت","en_title":"t shirt","ar_description":"fdf fds fdsf dsf dsfsd","en_description":"asdas asdas dsadas","confirm":"1","img":"1563887910.tisort_imunderwater_7412_626_626.jpg","show":null,"price":"250","sale":"1","salePrice":"150","instack":1,"cat_id":"8","mainCat":null,"color":"احمر - اصفر - اسود ","size":["S ","M ","L ","XL "," XXL"],"created_by":"1","updated_by":"1","created_at":"2019-07-23 13:18:30","updated_at":"2019-07-23 13:33:23","user":[{"id":1,"name":"admin","img":"1563223165.d1.jpg"}],"favorite":0,"view":2,"date":"2019-07-23","images":[{"id":4,"img":"1563888921.5244569305_1_1_3.jpg"},{"id":5,"img":"1563889114.Music-Nation-asser-yassine-new-movie-31.jpg"}],"new":1,"colors":["احمر "," اصفر "," اسود "]}
      * code : 200
      * message : code sent successfully
      */
@@ -30,28 +30,32 @@ public class ProductDetailsResponse extends BaseResponse
     public static class ProductBean {
         /**
          * id : 3
-         * ar_title : جيبه
-         * en_title : skirt
-         * ar_description : شسيشسششششششششششششششششششششششششششسيسشلسيشلشسيشسششششششششششششششششششششششششششسيسشلسيشلشسيشسششششششششششششششششششششششششششسيسشلسيشل
-         * en_description : شسيشسششششششششششششششششششششششششششسيسشلسيشلشسيشسششششششششششششششششششششششششششسيسشلسيشل
+         * ar_title : تى شيرت
+         * en_title : t shirt
+         * ar_description : fdf fds fdsf dsf dsfsd
+         * en_description : asdas asdas dsadas
          * confirm : 1
-         * img : 1561730788.w4.jpg
+         * img : 1563887910.tisort_imunderwater_7412_626_626.jpg
          * show : null
          * price : 250
          * sale : 1
          * salePrice : 150
-         * instack : 0
-         * cat_id : 4
-         * created_by : 5
-         * updated_by : null
-         * created_at : 2019-06-28 14:06:28
-         * updated_at : 2019-06-28 14:06:28
-         * user : [{"id":5,"name":"admin","img":null}]
-         * favorite : 1
-         * view : 1
-         * date : 2019-06-28
-         * images : [{"id":1,"img":"15613146101.jpg"},{"id":2,"img":"15613146102.jpg"}]
+         * instack : 1
+         * cat_id : 8
+         * mainCat : null
+         * color : احمر - اصفر - اسود
+         * size : ["S ","M ","L ","XL "," XXL"]
+         * created_by : 1
+         * updated_by : 1
+         * created_at : 2019-07-23 13:18:30
+         * updated_at : 2019-07-23 13:33:23
+         * user : [{"id":1,"name":"admin","img":"1563223165.d1.jpg"}]
+         * favorite : 0
+         * view : 2
+         * date : 2019-07-23
+         * images : [{"id":4,"img":"1563888921.5244569305_1_1_3.jpg"},{"id":5,"img":"1563889114.Music-Nation-asser-yassine-new-movie-31.jpg"}]
          * new : 1
+         * colors : ["احمر "," اصفر "," اسود "]
          */
 
         @Nullable
@@ -81,6 +85,10 @@ public class ProductDetailsResponse extends BaseResponse
         @Nullable
         private String cat_id;
         @Nullable
+        private String mainCat;
+        @Nullable
+        private String color;
+        @Nullable
         private String created_by;
         @Nullable
         private String updated_by;
@@ -94,13 +102,17 @@ public class ProductDetailsResponse extends BaseResponse
         private String view;
         @Nullable
         private String date;
-        @Nullable
         @SerializedName("new")
         private String newX;
+        @Nullable
+        private List<String> size;
         @Nullable
         private List<UserBean> user;
         @Nullable
         private List<ImagesBean> images;
+        @Nullable
+        private List<String> colors;
+
 
         public int getId() {
             return id;
@@ -219,6 +231,24 @@ public class ProductDetailsResponse extends BaseResponse
         }
 
         @Nullable
+        public String getMainCat() {
+            return mainCat;
+        }
+
+        public void setMainCat(@Nullable String mainCat) {
+            this.mainCat = mainCat;
+        }
+
+        @Nullable
+        public String getColor() {
+            return color;
+        }
+
+        public void setColor(@Nullable String color) {
+            this.color = color;
+        }
+
+        @Nullable
         public String getCreated_by() {
             return created_by;
         }
@@ -281,13 +311,21 @@ public class ProductDetailsResponse extends BaseResponse
             this.date = date;
         }
 
-        @Nullable
         public String getNewX() {
             return newX;
         }
 
-        public void setNewX(@Nullable String newX) {
+        public void setNewX(String newX) {
             this.newX = newX;
+        }
+
+        @Nullable
+        public List<String> getSize() {
+            return size;
+        }
+
+        public void setSize(@Nullable List<String> size) {
+            this.size = size;
         }
 
         @Nullable
@@ -308,11 +346,20 @@ public class ProductDetailsResponse extends BaseResponse
             this.images = images;
         }
 
+        @Nullable
+        public List<String> getColors() {
+            return colors;
+        }
+
+        public void setColors(@Nullable List<String> colors) {
+            this.colors = colors;
+        }
+
         public static class UserBean {
             /**
-             * id : 5
+             * id : 1
              * name : admin
-             * img : null
+             * img : 1563223165.d1.jpg
              */
 
             @Nullable
@@ -347,14 +394,12 @@ public class ProductDetailsResponse extends BaseResponse
             public void setImg(@Nullable String img) {
                 this.img = img;
             }
-
-
         }
 
         public static class ImagesBean {
             /**
-             * id : 1
-             * img : 15613146101.jpg
+             * id : 4
+             * img : 1563888921.5244569305_1_1_3.jpg
              */
 
             @Nullable

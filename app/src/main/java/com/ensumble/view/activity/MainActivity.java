@@ -1,6 +1,9 @@
 package com.ensumble.view.activity;
 
+import com.bumptech.glide.Glide;
+import com.ensumble.AppConfig.Constant;
 import com.ensumble.AppConfig.MyContextWrapper;
+import com.ensumble.PefManager.PrefUser;
 import com.google.android.material.navigation.NavigationView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +14,8 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.ensumble.AppConfig.CustomToolBar;
 import com.ensumble.R;
@@ -36,12 +41,25 @@ public class MainActivity extends AppCompatActivity {
     String flag ="homeFragment";
 
 
+    @BindView(R.id.user_name)
+    TextView user_name;
+    @BindView(R.id.user_email)
+    TextView user_email;
+
+
+    @BindView(R.id.user_image)
+    ImageView user_image;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
+        toolBar.setTitle(getString(R.string.home));
+
+        setMenuHeader();
 
         setUpNavMenu();
         //getFlag();
@@ -71,6 +89,18 @@ public class MainActivity extends AppCompatActivity {
         recyclerView_navMenu.setHasFixedSize(true);
         recyclerView_navMenu.setAdapter(adapter);
     } // function of setUpNavMenu
+
+
+    private void setMenuHeader()
+    {
+        user_name.setText(PrefUser.getUsername(getApplicationContext()));
+        user_email.setText(PrefUser.getEmail(getApplicationContext()));
+
+        Glide.with(this)
+            .load(Constant.USER_IMAGE_URL+PrefUser.getUserImage(getApplicationContext()))
+            .placeholder(getResources().getDrawable(R.drawable.profile))
+            .into(user_image);
+    } // function of setMenuHeader
 
     @Override
     protected void attachBaseContext(Context newBase) {

@@ -43,13 +43,14 @@ tools:context=".view.activity.ProductDetailsActivity">
                 android:layout_gravity="center_horizontal"
                 android:background="@color/windowBackground"
                 custom:auto_cycle="true"
-                custom:indicator_visibility="visible" />
+                custom:indicator_visibility="visible"/>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_below="@+id/slider"
-                android:background="@color/dividerLight"/>
+                android:background="@color/dividerLight"
+                class="com.ensumble.view"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -170,6 +171,7 @@ tools:context=".view.activity.ProductDetailsActivity">
             android:textAlignment="viewStart"
             android:textColor="@color/textColorSecondaryDark" />
 
+
         <TextView
             android:id="@+id/product_description"
             android:layout_width="match_parent"
@@ -186,6 +188,51 @@ tools:context=".view.activity.ProductDetailsActivity">
 
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_40sdp"
+            android:weightSum="6"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/color"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                />
+
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:id="@+id/sp_color"
+                ></Spinner>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/size"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="bold"
+                />
+
+            <Spinner
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:id="@+id/sp_size"
+                ></Spinner>
+
+        </LinearLayout>
+
+
+        <LinearLayout
             android:id="@+id/simple_product"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -196,7 +243,8 @@ tools:context=".view.activity.ProductDetailsActivity">
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/dividerLight"/>
+                android:background="@color/dividerLight"
+                class="com.ensumble.view"/>
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -284,7 +332,16 @@ tools:context=".view.activity.ProductDetailsActivity">
                         android:textColor="@color/textColorSecondaryDark" />
                 </LinearLayout>
 
+
+
             </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dividerLight"
+                />
+
         </LinearLayout>
 
 
@@ -293,9 +350,7 @@ tools:context=".view.activity.ProductDetailsActivity">
             android:id="@+id/seller_div"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             android:paddingLeft="20dp"
-            android:paddingTop="8dp"
             android:layout_marginBottom="8dp"
             android:paddingBottom="8dp"
             android:paddingRight="20dp"
@@ -342,11 +397,13 @@ tools:context=".view.activity.ProductDetailsActivity">
 
                         <Button
                             android:layout_width="wrap_content"
-                            android:layout_height="30dp"
+                            android:layout_height="@dimen/_30sdp"
                             android:text="@string/view_store"
                             android:textColor="@color/white"
                             android:background="@color/colorAccentBlue"
                             android:id="@+id/store_btn"
+                            android:paddingStart="@dimen/_5sdp"
+                            android:paddingEnd="@dimen/_5sdp"
                             android:layout_alignParentEnd="true"
                             android:layout_below="@+id/product_seller_name"
                             />

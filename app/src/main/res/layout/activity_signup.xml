@@ -209,7 +209,7 @@
                     android:textAllCaps="false"
                     android:textColor="@color/white"
                     android:textSize="@dimen/_16sdp"
-                    app:backgroundTint="@color/colorAccentGreen" />
+                    app:backgroundTint="@color/colorAccentOrange" />
 
             </LinearLayout>
 
@@ -267,7 +267,7 @@
                     android:layout_margin="@dimen/_4sdp"
                     android:clickable="true"
                     android:text="@string/login"
-                    android:textColor="@color/colorAccentGreen"
+                    android:textColor="@color/colorAccentBlue"
                     android:textSize="@dimen/_18sdp"
                     android:textStyle="bold" />
 

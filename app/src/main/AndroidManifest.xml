@@ -10,7 +10,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.EnterRateActivity"></activity>
+        <activity android:name=".view.activity.ProductsFilteredByCategoryActivity"></activity>
+        <activity android:name=".view.activity.SubCategoryActivity" />
+        <activity android:name=".view.activity.SearchProductActivity" />
+        <activity android:name=".view.activity.EnterRateActivity" />
         <activity android:name=".view.activity.SellerReviewActivity" />
         <activity android:name=".view.activity.ProductReviewsActivity" />
         <activity

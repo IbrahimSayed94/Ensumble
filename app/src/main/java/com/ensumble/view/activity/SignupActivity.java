@@ -161,6 +161,10 @@ public class SignupActivity extends AppCompatActivity {
                             PrefUser.setAddress(getApplicationContext(),address);
                             PrefUser.setUsername(getApplicationContext(),username);
                             PrefUser.setMobile(getApplicationContext(),mobile);
+                            PrefUser.setUserImage(getApplicationContext(),response.getUserdata().getImg());
+
+                            Log.e("QP","image register : "+response.getUserdata().getImg());
+
 
                             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                             startActivity(intent);

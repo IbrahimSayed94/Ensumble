@@ -1,7 +1,8 @@
 package com.ensumble.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.appcompat.widget.SearchView;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -9,6 +10,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
@@ -17,13 +21,11 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.ensumble.AppConfig.Constant;
 import com.ensumble.AppConfig.CustomDialogProgress;
-import com.ensumble.AppConfig.CustomToolBar;
 import com.ensumble.AppConfig.MyContextWrapper;
-import com.ensumble.Model.SellerCategoriesResponse;
-import com.ensumble.Model.SellersResponse;
+import com.ensumble.Model.ProductsResponse;
+import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
-import com.ensumble.adapter.SellerCategoryAdapter;
-import com.ensumble.adapter.SellersAdapter;
+import com.ensumble.adapter.ProductsAdapter;
 
 import java.util.List;
 
@@ -31,40 +33,49 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class SellersActivity extends AppCompatActivity {
-
-
+public class SearchProductActivity extends AppCompatActivity {
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
-
-    int categoryId=0;
 
     //progress
     CustomDialogProgress progress;
     Handler handler;
 
+    @BindView(R.id.txt_noResults)
+    TextView txt_noResults;
+
+    @BindView(R.id.searchView)
+    androidx.appcompat.widget.SearchView searchView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sellers);
+        setContentView(R.layout.activity_search_product);
         ButterKnife.bind(this);
-        CustomToolBar toolBar = new CustomToolBar(this);
-        toolBar.setTitle(getString(R.string.sellers));
 
-        getId();
-        getSellers();
 
+        initSearchView();
     } // function of onCreate
 
 
-    private void getId()
+    private void initSearchView()
     {
-        if(getIntent() != null)
-        {
-            categoryId = getIntent().getIntExtra("id",0);
-        }
-    } // funciton of getId
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                getSearchResults(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+    } // function of initSearchView
+
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -72,17 +83,18 @@ public class SellersActivity extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(new MyContextWrapper(newBase).wrap(sharedPreferences.getString("language","ar"))));
     }// apply fonts
 
-    private void initSellerList(List<SellersResponse.UsersBean> sellerList)
+    private void initProductList(List<ProductsResponse.ProductsBean> productList)
     {
-        SellersAdapter adapter=new SellersAdapter(getApplicationContext(),sellerList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
+        ProductsAdapter adapter=new ProductsAdapter(this,productList,"home");
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
+        recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
-    } // fnction of initSellerCategoryList
+    } // function of initProductList
 
-    private void getSellers()
+    private void getSearchResults(String text)
     {
+
         progress = new CustomDialogProgress();
         progress.init(this);
         handler = new Handler() {
@@ -94,24 +106,32 @@ public class SellersActivity extends AppCompatActivity {
 
         };
         progress.show();
-        AndroidNetworking.post(Constant.BASE_URL+"CompanyOnCategory")
-                .addBodyParameter("cat_id", String.valueOf(categoryId))
+        AndroidNetworking.post(Constant.BASE_URL+"search")
+                .addBodyParameter("user_id", PrefUser.getUserId(getApplicationContext()))
+                .addBodyParameter("search", text)
                 .setPriority(Priority.MEDIUM)
                 .build()
-                .getAsObject(SellersResponse.class, new ParsedRequestListener<SellersResponse>() {
+                .getAsObject(ProductsResponse.class, new ParsedRequestListener<ProductsResponse>() {
 
                     @Override
-                    public void onResponse(SellersResponse response) {
+                    public void onResponse(ProductsResponse response) {
                         progress.dismiss();
 
                         if(response.getCode().equals("200"))
                         {
-                            if(response.getUsers().size() > 0)
-                                initSellerList(response.getUsers());
+                            if(response.getProducts().size() > 0) {
+                                txt_noResults.setVisibility(View.GONE);
+                                recyclerView.setVisibility(View.VISIBLE);
+                                initProductList(response.getProducts());
+                            }else
+                            {
+                                txt_noResults.setVisibility(View.VISIBLE);
+                                recyclerView.setVisibility(View.GONE);
+                            }
                         }
                         else
                         {
-                            Toast.makeText(getApplicationContext(),getString(R.string.api_failure_message),Toast.LENGTH_LONG).show();
+
                         }
 
                     }
@@ -122,5 +142,6 @@ public class SellersActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),getString(R.string.api_failure_message),Toast.LENGTH_LONG).show();
                     }
                 });
-    } // function of getSellers
-} // class of SellersActivity
+    } // function of getSearchResults
+
+} // class of SearchProductActivity

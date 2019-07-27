@@ -117,9 +117,11 @@ public class LoginActivity extends AppCompatActivity {
                             PrefUser.setAddress(getApplicationContext(),response.getUserdata().getAddress());
                             PrefUser.setUsername(getApplicationContext(),response.getUserdata().getName());
                             PrefUser.setMobile(getApplicationContext(),mobile);
+                            PrefUser.setUserImage(getApplicationContext(),response.getUserdata().getImg());
 
                             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                             startActivity(intent);
+                            finish();
                         }
                         else if(response.getCode().equals("300"))
                         {

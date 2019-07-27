@@ -1,7 +1,7 @@
 package com.ensumble.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.androidnetworking.AndroidNetworking;
@@ -19,11 +20,10 @@ import com.ensumble.AppConfig.Constant;
 import com.ensumble.AppConfig.CustomDialogProgress;
 import com.ensumble.AppConfig.CustomToolBar;
 import com.ensumble.AppConfig.MyContextWrapper;
-import com.ensumble.Model.SellerCategoriesResponse;
-import com.ensumble.Model.SellersResponse;
+import com.ensumble.Model.ProductsResponse;
+import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
-import com.ensumble.adapter.SellerCategoryAdapter;
-import com.ensumble.adapter.SellersAdapter;
+import com.ensumble.adapter.ProductsAdapter;
 
 import java.util.List;
 
@@ -31,38 +31,39 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
-public class SellersActivity extends AppCompatActivity {
+public class ProductsFilteredByCategoryActivity extends AppCompatActivity {
 
 
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
 
-    int categoryId=0;
-
     //progress
     CustomDialogProgress progress;
     Handler handler;
 
+    int subCategoryId=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sellers);
+        setContentView(R.layout.activity_products_filtered_by_category);
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
-        toolBar.setTitle(getString(R.string.sellers));
+        toolBar.setTitle(getString(R.string.products));
 
         getId();
-        getSellers();
+
+        getProducts();
+
 
     } // function of onCreate
-
 
     private void getId()
     {
         if(getIntent() != null)
         {
-            categoryId = getIntent().getIntExtra("id",0);
+            subCategoryId = getIntent().getIntExtra("id",0);
         }
     } // funciton of getId
 
@@ -72,17 +73,23 @@ public class SellersActivity extends AppCompatActivity {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(new MyContextWrapper(newBase).wrap(sharedPreferences.getString("language","ar"))));
     }// apply fonts
 
-    private void initSellerList(List<SellersResponse.UsersBean> sellerList)
+
+
+    private void initProductList(List<ProductsResponse.ProductsBean> productList)
     {
-        SellersAdapter adapter=new SellersAdapter(getApplicationContext(),sellerList);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
+        ProductsAdapter adapter=new ProductsAdapter(getApplicationContext(),productList,"home");
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
+        recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(adapter);
-    } // fnction of initSellerCategoryList
+    } // function of initProductList
 
-    private void getSellers()
+
+
+    private void getProducts()
     {
+
+        Log.e("QP","categoryId : "+subCategoryId);
         progress = new CustomDialogProgress();
         progress.init(this);
         handler = new Handler() {
@@ -94,24 +101,27 @@ public class SellersActivity extends AppCompatActivity {
 
         };
         progress.show();
-        AndroidNetworking.post(Constant.BASE_URL+"CompanyOnCategory")
-                .addBodyParameter("cat_id", String.valueOf(categoryId))
+        AndroidNetworking.post(Constant.BASE_URL+"Products")
+                .addBodyParameter("user_id", PrefUser.getUserId(getApplicationContext()))
+                .addBodyParameter("cat_id", String.valueOf(subCategoryId))
                 .setPriority(Priority.MEDIUM)
                 .build()
-                .getAsObject(SellersResponse.class, new ParsedRequestListener<SellersResponse>() {
+                .getAsObject(ProductsResponse.class, new ParsedRequestListener<ProductsResponse>() {
 
                     @Override
-                    public void onResponse(SellersResponse response) {
+                    public void onResponse(ProductsResponse response) {
                         progress.dismiss();
 
                         if(response.getCode().equals("200"))
                         {
-                            if(response.getUsers().size() > 0)
-                                initSellerList(response.getUsers());
+                            if(response.getProducts().size() > 0)
+                                initProductList(response.getProducts());
+                                 else
+                            Toast.makeText(getApplicationContext(),getString(R.string.notFound),Toast.LENGTH_LONG).show();
                         }
                         else
                         {
-                            Toast.makeText(getApplicationContext(),getString(R.string.api_failure_message),Toast.LENGTH_LONG).show();
+
                         }
 
                     }
@@ -120,7 +130,7 @@ public class SellersActivity extends AppCompatActivity {
                     public void onError(ANError anError) {
                         progress.dismiss();
                         Toast.makeText(getApplicationContext(),getString(R.string.api_failure_message),Toast.LENGTH_LONG).show();
-                    }
+                }
                 });
-    } // function of getSellers
-} // class of SellersActivity
+    } // function of getProducts
+} // class of ProductsFilteredByCategoryActivity
