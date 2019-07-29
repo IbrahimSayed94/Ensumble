@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
@@ -56,8 +57,18 @@ public class SearchProductActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
+
         initSearchView();
     } // function of onCreate
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+        intent.putExtra("flag","homeFragment");
+        startActivity(intent);
+        finish();
+    } // function of onBackPressed
 
 
     private void initSearchView()

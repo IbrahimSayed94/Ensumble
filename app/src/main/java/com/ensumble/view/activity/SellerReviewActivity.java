@@ -24,6 +24,7 @@ import com.ensumble.AppConfig.CustomDialogProgress;
 import com.ensumble.AppConfig.CustomToolBar;
 import com.ensumble.AppConfig.MyContextWrapper;
 import com.ensumble.Model.ProductReviewsResponse;
+import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
 import com.ensumble.adapter.ReviewsAdapter;
 
@@ -73,6 +74,7 @@ public class SellerReviewActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
         toolBar.setTitle(getString(R.string.sellerRate));
+        toolBar.setCartCount(PrefUser.getCartCount(getApplicationContext()));
 
 
         getData();

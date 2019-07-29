@@ -13,7 +13,16 @@ public class BaseResponse
     private String check;
     @Nullable
     private String counts;
+    @Nullable
+    private int count;
 
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
 
     @Nullable
     public String getCheck() {

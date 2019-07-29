@@ -20,6 +20,7 @@ public class PrefUser
     private static final String ADDRESS = "address" ;
     private static final String USER_ID = "userId" ;
     private static final String USER_IMAGE = "userImage" ;
+    private static final String CART_COUNT="cart_count";
 
 
     public static SharedPreferences getPref(Context context) {
@@ -118,6 +119,17 @@ public class PrefUser
     public static String getUserImage(Context context)
     {
         return getPref(context).getString(USER_IMAGE,"");
+    }
+    ///////////////////////////////////
+
+    public static void setCartCount(Context context,int count)
+    {
+        getPref(context).edit().putInt(CART_COUNT,count).apply();
+    }
+
+    public static int getCartCount(Context context)
+    {
+        return getPref(context).getInt(CART_COUNT,0);
     }
 
 }

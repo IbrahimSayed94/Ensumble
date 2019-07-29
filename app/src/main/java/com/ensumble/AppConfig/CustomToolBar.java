@@ -10,10 +10,12 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ensumble.R;
 import com.ensumble.view.activity.SearchProductActivity;
+import com.nex3z.notificationbadge.NotificationBadge;
 
 public class CustomToolBar {
     Toolbar toolbar;
@@ -24,6 +26,9 @@ public class CustomToolBar {
 
     TextView  txt_toolbarTitle;
     ImageView toolbar_search;
+
+    RelativeLayout cart_layout;
+    NotificationBadge cart_badge;
 
     public CustomToolBar() {
     }
@@ -41,6 +46,8 @@ public class CustomToolBar {
         drawer_layout = activity.findViewById(R.id.drawer_layout);
         txt_toolbarTitle = activity.findViewById(R.id.txt_toolbarTitle);
         toolbar_search = activity.findViewById(R.id.toolbar_search);
+        cart_layout = activity.findViewById(R.id.cart_layout);
+        cart_badge = activity.findViewById(R.id.badge_cart);
         ((AppCompatActivity) (activity)).setSupportActionBar(toolbar);
         ActionBar actionBar = ((AppCompatActivity) (activity)).getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(false);
@@ -75,6 +82,11 @@ public class CustomToolBar {
             }
         });
     } // function of initToolBar
+
+    public void setCartCount(int count)
+    {
+        cart_badge.setNumber(count,true);
+    } // function of setCartCount
 
     public void setTitle(String title)
     {

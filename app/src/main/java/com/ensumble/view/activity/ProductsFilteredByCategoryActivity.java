@@ -51,6 +51,7 @@ public class ProductsFilteredByCategoryActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
         toolBar.setTitle(getString(R.string.products));
+        toolBar.setCartCount(PrefUser.getCartCount(getApplicationContext()));
 
         getId();
 

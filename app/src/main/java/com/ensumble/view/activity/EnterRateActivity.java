@@ -55,6 +55,7 @@ public class EnterRateActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
         toolBar.setTitle(getString(R.string.enterRate));
+        toolBar.setCartCount(PrefUser.getCartCount(getApplicationContext()));
 
 
         getData();

@@ -22,6 +22,7 @@ import com.ensumble.AppConfig.CustomDialogProgress;
 import com.ensumble.AppConfig.CustomToolBar;
 import com.ensumble.AppConfig.MyContextWrapper;
 import com.ensumble.Model.SellerDetailsResponse;
+import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
 
 import butterknife.BindView;
@@ -65,6 +66,7 @@ public class SellerProfileActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
         toolBar.setTitle(getString(R.string.sellerProfile));
+        toolBar.setCartCount(PrefUser.getCartCount(getApplicationContext()));
 
         getId();
         getSellerDetails();

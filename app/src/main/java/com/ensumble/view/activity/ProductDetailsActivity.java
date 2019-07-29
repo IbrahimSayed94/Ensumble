@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
@@ -92,13 +93,18 @@ public class ProductDetailsActivity extends AppCompatActivity {
 
     int sellerId=0;
 
+    String cart_color ="" , cart_size="" ;
+
+    CustomToolBar toolBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
         ButterKnife.bind(this);
-        CustomToolBar toolBar = new CustomToolBar(this);
+        toolBar = new CustomToolBar(this);
         toolBar.setTitle(getString(R.string.productDetails));
+        toolBar.setCartCount(PrefUser.getCartCount(getApplicationContext()));
 
         getData();
         initFavoriteButton();
@@ -188,6 +194,18 @@ public class ProductDetailsActivity extends AppCompatActivity {
     {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.spinner_text,colorList);
         sp_color.setAdapter(adapter);
+
+        sp_color.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                cart_color = colorList.get(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     } // function of setColorSpinnerData
 
 
@@ -195,6 +213,18 @@ public class ProductDetailsActivity extends AppCompatActivity {
     {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,R.layout.spinner_text,sizeList);
         sp_size.setAdapter(adapter);
+
+        sp_size.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                cart_size = sizeList.get(i);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     } // function of setSizeSpinnerData
 
 
@@ -375,4 +405,62 @@ public class ProductDetailsActivity extends AppCompatActivity {
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
     } // function of storeClick
+
+    @OnClick(R.id.product_cart_btn)
+    public void addToCartButton()
+    {
+        Log.e("QP","CART : "+productId+" : "+PrefUser.getUserId(getApplicationContext())+" : "+cart_color+
+                " : "+cart_size+" : "+countProduct);
+
+
+        addCart();
+    } // function of addToCartButton
+
+
+    private void addCart()
+    {
+        progress = new CustomDialogProgress();
+        progress.init(this);
+        handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                progress.dismiss();
+                super.handleMessage(msg);
+            }
+
+        };
+        progress.show();
+        AndroidNetworking.post(Constant.BASE_URL + "Basket_Store")
+                .addBodyParameter("product_id", String.valueOf(productId))
+                .addBodyParameter("user_id", PrefUser.getUserId(getApplicationContext()))
+                .addBodyParameter("count", String.valueOf(countProduct))
+                .addBodyParameter("color", cart_color)
+                .addBodyParameter("size", cart_size)
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsObject(BaseResponse.class, new ParsedRequestListener<BaseResponse>() {
+
+                    @Override
+                    public void onResponse(BaseResponse response) {
+                        progress.dismiss();
+
+                        if (response.getCode().equals("200")) {
+
+
+                            PrefUser.setCartCount(getApplicationContext(),PrefUser.getCartCount(getApplicationContext())+1);
+                            toolBar.setCartCount(PrefUser.getCartCount(getApplicationContext()));
+
+                        } else {
+                            Toast.makeText(getApplicationContext(),getString(R.string.api_failure_message), Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        progress.dismiss();
+                        Toast.makeText(getApplicationContext(),getString(R.string.api_failure_message), Toast.LENGTH_LONG).show();
+                    }
+                });
+    } // function of addCart
 } // function of ProductDetailsActivity

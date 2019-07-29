@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
         toolBar.setTitle(getString(R.string.home));
+        toolBar.setCartCount(PrefUser.getCartCount(getApplicationContext()));
 
         setMenuHeader();
 

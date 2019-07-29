@@ -6,20 +6,34 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.view.View;
+import android.widget.Toast;
 
+import com.androidnetworking.AndroidNetworking;
+import com.androidnetworking.common.Priority;
+import com.androidnetworking.error.ANError;
+import com.androidnetworking.interfaces.ParsedRequestListener;
+import com.ensumble.AppConfig.Constant;
+import com.ensumble.AppConfig.CustomDialogProgress;
+import com.ensumble.Model.BaseResponse;
 import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
 
 public class SplachActivity extends AppCompatActivity {
+
+
+    //progress
+    CustomDialogProgress progress;
+    Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splach);
 
-
         splash();
+
     } // function of onCreate
 
     private void  splash()
@@ -30,10 +44,7 @@ public class SplachActivity extends AppCompatActivity {
 
                 if(PrefUser.getLogin(getApplicationContext()))
                 {
-                    Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-                    intent.putExtra("flag","homeFragment");
-                    startActivity(intent);
-                    finish();
+                   getCartCount();
                 }
                 else
                 {
@@ -45,6 +56,51 @@ public class SplachActivity extends AppCompatActivity {
             }
         },3000);
     } // function of splash
+
+    private void getCartCount ()
+    {
+        progress = new CustomDialogProgress();
+        progress.init(this);
+        handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                progress.dismiss();
+                super.handleMessage(msg);
+            }
+
+        };
+        progress.show();
+        AndroidNetworking.post(Constant.BASE_URL + "CountBasket")
+                .addBodyParameter("user_id", PrefUser.getUserId(getApplicationContext()))
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsObject(BaseResponse.class, new ParsedRequestListener<BaseResponse>() {
+
+                    @Override
+                    public void onResponse(BaseResponse response) {
+                        progress.dismiss();
+
+                        if (response.getCode().equals("200")) {
+
+                            PrefUser.setCartCount(getApplicationContext(),response.getCount());
+                            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                            intent.putExtra("flag","homeFragment");
+                            startActivity(intent);
+                            finish();
+
+                        } else {
+                            Toast.makeText(getApplicationContext(),getString(R.string.api_failure_message), Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        progress.dismiss();
+                        Toast.makeText(getApplicationContext(),getString(R.string.api_failure_message), Toast.LENGTH_LONG).show();
+                    }
+                });
+    } // function of getCartCount
 
     @Override
     public void onWindowFocusChanged(boolean hasFocus) {

@@ -20,6 +20,7 @@ import com.ensumble.AppConfig.CustomDialogProgress;
 import com.ensumble.AppConfig.CustomToolBar;
 import com.ensumble.AppConfig.MyContextWrapper;
 import com.ensumble.Model.CategoryResponse;
+import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
 import com.ensumble.adapter.CategoryAdapter;
 
@@ -50,6 +51,7 @@ public class SubCategoryActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
         toolBar.setTitle(getString(R.string.categories));
+        toolBar.setCartCount(PrefUser.getCartCount(getApplicationContext()));
 
 
         getId();

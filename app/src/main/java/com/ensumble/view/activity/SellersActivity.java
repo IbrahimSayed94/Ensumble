@@ -21,6 +21,7 @@ import com.ensumble.AppConfig.CustomToolBar;
 import com.ensumble.AppConfig.MyContextWrapper;
 import com.ensumble.Model.SellerCategoriesResponse;
 import com.ensumble.Model.SellersResponse;
+import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
 import com.ensumble.adapter.SellerCategoryAdapter;
 import com.ensumble.adapter.SellersAdapter;
@@ -51,6 +52,7 @@ public class SellersActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
         toolBar.setTitle(getString(R.string.sellers));
+        toolBar.setCartCount(PrefUser.getCartCount(getApplicationContext()));
 
         getId();
         getSellers();

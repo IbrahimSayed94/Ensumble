@@ -88,6 +88,7 @@ public class AddProductActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         CustomToolBar toolBar = new CustomToolBar(this);
         toolBar.setTitle(getString(R.string.addProduct));
+        toolBar.setCartCount(PrefUser.getCartCount(getApplicationContext()));
 
 
         getSellerCategories();
