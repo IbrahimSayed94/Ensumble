@@ -104,6 +104,7 @@
     <string name="noRatingFounds">لا يوجد تقييمات</string>
     <string name="rateSeller">قيم البائع</string>
     <string name="edit_profile">تعديل</string>
+    <string name="info">معلومات</string>
 
     <string name="search_hint">ابحث</string>
     <string name="noSearchResults">لا يوجد نتائج بحث</string>
@@ -111,6 +112,10 @@
 
     <string name="color">اللون</string>
     <string name="size">المقاس</string>
+    
+    <string name="confirmationCeckOutCart">تأكيد الطلب ؟</string>
+    <string name="yes">نعم</string>
+    <string name="no">لا</string>
 
     <!-- toolbar titles -->
     <string name="addProduct">أضف منتج</string>
@@ -124,4 +129,5 @@
     <string name="sellers">البائع</string>
     <string name="categories">الأقسام</string>
     <string name="products">المنتجات</string>
+    <string name="colors">الألوان</string>
 </resources>

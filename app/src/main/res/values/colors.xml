@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#51688F</color>
-    <color name="colorPrimaryDark">#485c7f</color>
+    <color name="colorPrimary">#1c1e27</color>
+    <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#51688F</color>
     <color name="colorPrimaryLight">#5c76a3</color>
 
@@ -62,6 +62,8 @@
     <color name="sellerDivColor">#FFCDEFFF</color>
     <color name="light_grey">#808080</color>
 
-
+    <color name="colorSite">#dbcc8f</color>
+    <color name="colorGrey">#f5f5f5</color>
+    <color name="toolbar">#1c1e27</color>
 
 </resources>

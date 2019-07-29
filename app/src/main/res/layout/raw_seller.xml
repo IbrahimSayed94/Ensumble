@@ -6,26 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     card_view:cardElevation="@dimen/_2sdp"
-    card_view:cardCornerRadius="0dp"
+    card_view:cardCornerRadius="1dp"
     card_view:cardUseCompatPadding="true"
     card_view:cardPreventCornerOverlap="false"
-    app:ignore="NamespaceTypo">
+    app:ignore="NamespaceTypo"
+    android:background="@color/white">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/_110sdp"
         android:background="@color/white"
-        android:padding="@dimen/_5sdp"
+        android:padding="@dimen/_2sdp"
         >
 
 
         <ImageView
             android:id="@+id/seller_image"
             android:layout_width="@dimen/_110sdp"
-            android:layout_height="@dimen/_70sdp"
+            android:layout_height="match_parent"
             android:src="@drawable/asser"
             android:clickable="true"
-            android:scaleType="fitXY"
             android:layout_alignParentStart="true"
              />
 
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="1"
-                android:textSize="@dimen/_14sdp"
+                android:textSize="@dimen/_15sdp"
                 android:textAlignment="viewStart"
                 android:layout_marginTop="@dimen/_5sdp"
                 android:layout_marginEnd="@dimen/_20sdp"
@@ -69,8 +69,7 @@
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
                         android:text="@string/mobileNumber"
-                        android:textColor="@color/black"
-                        android:textSize="@dimen/_14sdp"
+                        android:textSize="@dimen/_12sdp"
                         android:layout_toStartOf="@+id/product_like_btn"/>
 
                 </RelativeLayout>
@@ -99,10 +98,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:numStars="5"
-                    android:rating="0"
+                    android:rating="4"
                     android:stepSize="0.1"
                     app:changeable="false"
                     android:paddingTop="@dimen/_2sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
                     style="?android:attr/ratingBarStyleSmall"
                     app:empty_color="@color/colorAccentGrey"
                     app:progress_color="@android:color/holo_orange_light" />
@@ -168,12 +168,6 @@
 
         </FrameLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_1sdp"
-            android:layout_marginTop="@dimen/_1sdp"
-            android:background="@color/dividerLight"
-            android:layout_alignParentBottom="true"/>
 
     </RelativeLayout>
 

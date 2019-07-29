@@ -104,6 +104,9 @@
     <string name="noRatingFounds">No rating found</string>
     <string name="rateSeller">Rate seller</string>
     <string name="edit_profile">Edit</string>
+    <string name="info">Info</string>
+    <string name="facebook_link">Facebook Link</string>
+    <string name="instagram_link">Instagram Link</string>
 
     <string name="search_hint">Search</string>
     <string name="noSearchResults">No search results</string>
@@ -111,6 +114,10 @@
 
     <string name="color">Color</string>
     <string name="size">Size</string>
+
+    <string name="confirmationCeckOutCart">Confirm order?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 
     <!-- toolbar titles -->
     <string name="addProduct">Add product</string>
@@ -124,5 +131,6 @@
     <string name="sellers">Sellers</string>
     <string name="categories">Categories</string>
     <string name="products">Products</string>
+    <string name="colors">Colors</string>
 
 </resources>

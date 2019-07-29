@@ -120,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
                             PrefUser.setUserImage(getApplicationContext(),response.getUserdata().getImg());
 
                             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                            intent.putExtra("flag","homeFragment");
                             startActivity(intent);
                             finish();
                         }

@@ -4,6 +4,7 @@ import com.bumptech.glide.Glide;
 import com.ensumble.AppConfig.Constant;
 import com.ensumble.AppConfig.MyContextWrapper;
 import com.ensumble.PefManager.PrefUser;
+import com.ensumble.view.fragment.CartFragment;
 import com.google.android.material.navigation.NavigationView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
         setMenuHeader();
 
         setUpNavMenu();
-        //getFlag();
+        getFlag();
         defaultFragment(flag);
 
     } // function of onCreate
@@ -79,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
     private void defaultFragment(String flag) {
         if (flag.equals("homeFragment")) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        }
+        else  if(flag.equals("cartFragment"))
+        {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new CartFragment()).commit();
         }
     }// function defaultFragment
     private void setUpNavMenu()

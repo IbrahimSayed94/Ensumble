@@ -167,7 +167,9 @@ public class SignupActivity extends AppCompatActivity {
 
 
                             Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                            intent.putExtra("flag","homeFragment");
                             startActivity(intent);
+                            finish();
                         }
                         else if(response.getCode().equals("300"))
                         {

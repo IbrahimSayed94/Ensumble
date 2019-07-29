@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.ensumble.R;
+import com.ensumble.view.activity.MainActivity;
 import com.ensumble.view.activity.SearchProductActivity;
 import com.nex3z.notificationbadge.NotificationBadge;
 
@@ -79,6 +80,16 @@ public class CustomToolBar {
             public void onClick(View view) {
                 Intent intent = new Intent(activity, SearchProductActivity.class);
                 activity.startActivity(intent);
+            }
+        });
+
+        cart_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(activity, MainActivity.class);
+                intent.putExtra("flag","cartFragment");
+                activity.startActivity(intent);
+                activity.finish();
             }
         });
     } // function of initToolBar
