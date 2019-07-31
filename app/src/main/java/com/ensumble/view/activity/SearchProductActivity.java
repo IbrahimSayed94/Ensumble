@@ -84,6 +84,14 @@ public class SearchProductActivity extends AppCompatActivity {
             public boolean onQueryTextChange(String newText) {
                 return false;
             }
+
+        });
+
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchView.onActionViewExpanded();
+            }
         });
     } // function of initSearchView
 
@@ -96,7 +104,7 @@ public class SearchProductActivity extends AppCompatActivity {
 
     private void initProductList(List<ProductsResponse.ProductsBean> productList)
     {
-        ProductsAdapter adapter=new ProductsAdapter(this,productList,"home");
+        ProductsAdapter adapter=new ProductsAdapter(this,productList,"search",this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);

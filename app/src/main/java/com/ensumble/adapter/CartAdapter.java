@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.ensumble.AppConfig.Constant;
 import com.ensumble.Model.MyCartResponse;
 import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
@@ -82,6 +84,11 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.ViewHolder> {
         holder.cart_item_base_price.setText(object.getProductDetails().get(0).getPrice()+"");
         holder.cart_item_sub_price.setText( (object.getCountX()
         * object.getProductDetails().get(0).getPrice()) + "");
+
+        Glide.with(context)
+             .load(Constant.PRODUCT_IMAGE_URL+object.getProductDetails().get(0).getImg())
+             .placeholder(context.getResources().getDrawable(R.drawable.placeholder))
+             .into(holder.cart_item_cover);
 
 
     }

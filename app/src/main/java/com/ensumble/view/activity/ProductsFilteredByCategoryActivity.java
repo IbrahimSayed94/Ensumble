@@ -78,7 +78,7 @@ public class ProductsFilteredByCategoryActivity extends AppCompatActivity {
 
     private void initProductList(List<ProductsResponse.ProductsBean> productList)
     {
-        ProductsAdapter adapter=new ProductsAdapter(getApplicationContext(),productList,"home");
+        ProductsAdapter adapter=new ProductsAdapter(getApplicationContext(),productList,"home",this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);

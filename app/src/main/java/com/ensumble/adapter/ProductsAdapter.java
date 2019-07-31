@@ -26,6 +26,7 @@ import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.bumptech.glide.Glide;
 import com.ensumble.AppConfig.Constant;
 import com.ensumble.AppConfig.CustomDialogProgress;
+import com.ensumble.AppConfig.CustomToolBar;
 import com.ensumble.Model.BaseResponse;
 import com.ensumble.Model.ProductDetailsResponse;
 import com.ensumble.Model.ProductsResponse;
@@ -50,10 +51,16 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
     CustomDialogProgress progress;
     Handler handler;
 
-    public ProductsAdapter(Context context, List<ProductsResponse.ProductsBean> productList,String type) {
+    CustomToolBar toolBar;
+
+
+    public ProductsAdapter(Context context, List<ProductsResponse.ProductsBean> productList,String type,Activity activity) {
         this.context = context;
         this.productList = productList;
         this.type = type;
+
+        if(! type.equals("search"))
+        toolBar = new CustomToolBar(activity);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -174,6 +181,14 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
                 {}
             }
         });
+
+        holder.product_cart_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                addCart(productsBean.getId());
+            }
+        });
     }
 
     @Override
@@ -228,4 +243,54 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ViewHo
                     }
                 });
     } // function of addFavorite
+
+    private void addCart(int productId)
+    {
+        progress = new CustomDialogProgress();
+        progress.init(context);
+        handler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                progress.dismiss();
+                super.handleMessage(msg);
+            }
+
+        };
+        progress.show();
+        AndroidNetworking.post(Constant.BASE_URL + "Basket_Store")
+                .addBodyParameter("product_id", String.valueOf(productId))
+                .addBodyParameter("user_id", PrefUser.getUserId(context))
+                .addBodyParameter("count", "1")
+                .addBodyParameter("color", "")
+                .addBodyParameter("size", "")
+                .setPriority(Priority.MEDIUM)
+                .build()
+                .getAsObject(BaseResponse.class, new ParsedRequestListener<BaseResponse>() {
+
+                    @Override
+                    public void onResponse(BaseResponse response) {
+                        progress.dismiss();
+
+                        if (response.getCode().equals("200")) {
+
+
+                            PrefUser.setCartCount(context,PrefUser.getCartCount(context)+1);
+                            if(! type.equals("search"))
+                                toolBar.setCartCount(PrefUser.getCartCount(context));
+
+
+
+                        } else {
+                            Toast.makeText(context,context.getString(R.string.api_failure_message), Toast.LENGTH_LONG).show();
+                        }
+
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        progress.dismiss();
+                        Toast.makeText(context,context.getString(R.string.api_failure_message), Toast.LENGTH_LONG).show();
+                    }
+                });
+    } // function of addCart
 }

@@ -7,13 +7,12 @@ import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
@@ -21,36 +20,38 @@ import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.ensumble.AppConfig.Constant;
 import com.ensumble.AppConfig.CustomDialogProgress;
-import com.ensumble.Model.ProductsResponse;
+import com.ensumble.Model.AboutResponse;
+import com.ensumble.Model.MyCartResponse;
 import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
-import com.ensumble.adapter.ProductsAdapter;
-
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MyFavoriteFragment extends Fragment {
+public class AboutFragment extends Fragment
+{
 
     Context context;
-
-    @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
 
     //progress
     CustomDialogProgress progress;
     Handler handler;
 
+    @BindView(R.id.about_title)
+    TextView about_title;
+
+    @BindView(R.id.about_description)
+    TextView about_description;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_my_favorite, container, false);
+        View view = inflater.inflate(R.layout.fragment_about_us, container, false);
         ButterKnife.bind(this, view);
 
 
-        getMyFavorite();
+        getAbout();
+
         return view;
     } // function of onCreateView
 
@@ -66,17 +67,21 @@ public class MyFavoriteFragment extends Fragment {
 
     } // function of onCreate
 
-
-    private void initProductList(List<ProductsResponse.ProductsBean> productList)
+    private void setData(AboutResponse.Data data)
     {
-        ProductsAdapter adapter=new ProductsAdapter(context,productList,"favorite",getActivity());
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(context,2);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(adapter);
-    } // function of initProductList
+         if(PrefUser.getLanguage(context).equals("ar"))
+         {
+             about_title.setText(data.getAr_title());
+             about_description.setText(data.getAr_description());
+         }
+         else
+         {
+             about_title.setText(data.getEn_title());
+             about_description.setText(data.getEn_description());
+         }
+    } // function of setData
 
-    private void getMyFavorite()
+    private void getAbout()
     {
         progress = new CustomDialogProgress();
         progress.init(getContext());
@@ -89,20 +94,18 @@ public class MyFavoriteFragment extends Fragment {
 
         };
         progress.show();
-        AndroidNetworking.post(Constant.BASE_URL+"MyFavorite")
-                .addBodyParameter("user_id", PrefUser.getUserId(getContext()))
+        AndroidNetworking.get(Constant.BASE_URL+"AboutUs")
                 .setPriority(Priority.MEDIUM)
                 .build()
-                .getAsObject(ProductsResponse.class, new ParsedRequestListener<ProductsResponse>() {
+                .getAsObject(AboutResponse.class, new ParsedRequestListener<AboutResponse>() {
 
                     @Override
-                    public void onResponse(ProductsResponse response) {
+                    public void onResponse(AboutResponse response) {
                         progress.dismiss();
 
                         if(response.getCode().equals("200"))
                         {
-                            if(response.getProducts().size() > 0)
-                                initProductList(response.getProducts());
+                            setData(response.getData().get(0));
                         }
                         else
                         {
@@ -117,6 +120,5 @@ public class MyFavoriteFragment extends Fragment {
                         Toast.makeText(getContext(),getString(R.string.api_failure_message),Toast.LENGTH_LONG).show();
                     }
                 });
-    } // function of getMyFavorite
-
-} // class of MyFavoriteFragment
+    } // function of getAbout
+} // class of AboutFragment

@@ -148,7 +148,7 @@ public class SellerDetailsActivity extends AppCompatActivity {
 
     private void initProductList(List<ProductsResponse.ProductsBean> productList)
     {
-        ProductsAdapter adapter=new ProductsAdapter(getApplicationContext(),productList,"home");
+        ProductsAdapter adapter=new ProductsAdapter(getApplicationContext(),productList,"home",this);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getApplicationContext(),2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);

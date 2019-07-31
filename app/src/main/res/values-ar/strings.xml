@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ensumble</string>
+    <string name="app_name">Ensemble</string>
 
 
     <array name="nav_drawables_list">
@@ -8,7 +8,8 @@
         <item name="language_img">@drawable/ic_favorite_menu</item>
         <item name="language_img">@drawable/ic_store_black_24dp</item>
         <item name="language_img">@drawable/ic_shopping_cart</item>
-        <item name="language_img">@drawable/ic_add_product</item>
+        <item name="language_img">@drawable/ic_info_outline_black_24dp</item>
+        <item name="language_img">@drawable/ic_share_black_24dp</item>
         <item name="language_img">@drawable/ic_language</item>
         <item name="language_img">@drawable/ic_logout</item>
     </array>
@@ -18,7 +19,8 @@
         <item name="favorite">المفضلة</item>
         <item name="companyCategory">المتاجر</item>
         <item name="categories">الفئات</item>
-        <item name="addProduct">أضف منتج</item>
+        <item name="about">من نحن</item>
+        <item name="share">مشاركة</item>
         <item name="language">English</item>
         <item name="logout">تسجيل الخروج</item>
     </string-array>
@@ -117,6 +119,7 @@
     <string name="yes">نعم</string>
     <string name="no">لا</string>
 
+    <string name="checkOutMessage">تم تسجيل طلبك بنجاح ستيم التواصل معك في أقرب وقت</string>
     <!-- toolbar titles -->
     <string name="addProduct">أضف منتج</string>
     <string name="enterRate">أضف تقييم</string>

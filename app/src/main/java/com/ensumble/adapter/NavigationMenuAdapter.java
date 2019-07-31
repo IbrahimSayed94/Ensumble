@@ -16,11 +16,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.ensumble.BuildConfig;
 import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
 import com.ensumble.view.activity.AddProductActivity;
 import com.ensumble.view.activity.LoginActivity;
 import com.ensumble.view.activity.MainActivity;
+import com.ensumble.view.fragment.AboutFragment;
 import com.ensumble.view.fragment.CategoriesFragment;
 import com.ensumble.view.fragment.HomeFragment;
 import com.ensumble.view.fragment.MyFavoriteFragment;
@@ -95,14 +97,17 @@ public class NavigationMenuAdapter extends RecyclerView.Adapter<NavigationMenuAd
                         ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container, new CategoriesFragment()).commit();
                         break;
-                    case 4: // Add Category
-                       Intent intent1 = new Intent(context, AddProductActivity.class);
-                       context.startActivity(intent1);
+                    case 4: // about
+                        ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, new AboutFragment()).commit();
                         break;
-                    case 5: // language
+                    case 5: // share
+                        shareApp();
+                        break;
+                    case 6: // language
                         changeLanguage();
                         break;
-                    case 6: // logOut
+                    case 7: // logOut
                         logOut();
                         break;
                 }
@@ -148,6 +153,19 @@ public class NavigationMenuAdapter extends RecyclerView.Adapter<NavigationMenuAd
         ((Activity)context).finish();
     } // function of logOut
 
-
+    private void shareApp()
+    {
+        try {
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("text/plain");
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "Maak Maak");
+            String shareMessage= "\nLet me recommend you this application\n\n";
+            shareMessage = shareMessage + "https://play.google.com/store/apps/details?id=" + BuildConfig.APPLICATION_ID +"\n\n";
+            shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage);
+            context.startActivity(Intent.createChooser(shareIntent, "choose one"));
+        } catch(Exception e) {
+            //e.toString();
+        }
+    } // function of shareApp
 }
 

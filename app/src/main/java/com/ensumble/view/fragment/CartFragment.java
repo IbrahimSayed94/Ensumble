@@ -194,7 +194,7 @@ public class CartFragment extends Fragment
             @Override
             public void onClick(View view) {
                 conFirmCheckOutDialog.dismiss();
-                //checkOut();
+                checkOut();
             }
         });
     } // function of initConfirmationDialog
@@ -224,7 +224,8 @@ public class CartFragment extends Fragment
 
                         if(response.getCode().equals("200"))
                         {
-                            Toast.makeText(context,getString(R.string.successfullyDone),Toast.LENGTH_LONG).show();
+                            Toast.makeText(context,getString(R.string.checkOutMessage),Toast.LENGTH_LONG).show();
+
                             Intent intent=new Intent(context, MainActivity.class);
                             intent.putExtra("flag","homeFragment");
                             startActivity(intent);

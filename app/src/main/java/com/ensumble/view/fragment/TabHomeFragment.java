@@ -84,7 +84,7 @@ public class TabHomeFragment extends Fragment
 
     private void initProductList(List<ProductsResponse.ProductsBean> productList)
     {
-        ProductsAdapter adapter=new ProductsAdapter(getContext(),productList,"home");
+        ProductsAdapter adapter=new ProductsAdapter(getContext(),productList,"home",getActivity());
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);

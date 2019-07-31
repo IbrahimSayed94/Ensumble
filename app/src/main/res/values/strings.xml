@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ensumble</string>
+    <string name="app_name">Ensemble</string>
 
 
     <array name="nav_drawables_list">
@@ -7,7 +7,8 @@
         <item name="language_img">@drawable/ic_favorite_menu</item>
         <item name="language_img">@drawable/ic_store_black_24dp</item>
         <item name="language_img">@drawable/ic_shopping_cart</item>
-        <item name="language_img">@drawable/ic_add_product</item>
+        <item name="language_img">@drawable/ic_info_outline_black_24dp</item>
+        <item name="language_img">@drawable/ic_share_black_24dp</item>
         <item name="language_img">@drawable/ic_language</item>
         <item name="language_img">@drawable/ic_logout</item>
     </array>
@@ -17,7 +18,8 @@
         <item name="favorite">My Favorite</item>
         <item name="companyCategory">Stores</item>
         <item name="categories">Categories</item>
-        <item name="addProduct">Add Product</item>
+        <item name="about">About</item>
+        <item name="share">Share</item>
         <item name="language">عربى</item>
         <item name="logout">Logout</item>
     </string-array>
@@ -118,6 +120,8 @@
     <string name="confirmationCeckOutCart">Confirm order?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+
+    <string name="checkOutMessage">You order registerd successfully we will communicate with you as soon as possible</string>
 
     <!-- toolbar titles -->
     <string name="addProduct">Add product</string>
