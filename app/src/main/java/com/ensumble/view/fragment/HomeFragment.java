@@ -50,12 +50,10 @@ public class HomeFragment extends Fragment
     ViewPager viewPager;
     HomeViewPagerAdapter homeViewPagerAdapter;
 
-
     SharedPreferences sharedPreferences;
 
     TextSliderView textSliderView ;
     SliderLayout sliderShow ;
-
 
     //progress
     CustomDialogProgress progress;

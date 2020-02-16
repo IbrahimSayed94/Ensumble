@@ -4,6 +4,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.paging.PagedList;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,7 +25,10 @@ import com.androidnetworking.interfaces.ParsedRequestListener;
 import com.ensumble.AppConfig.Constant;
 import com.ensumble.AppConfig.CustomDialogProgress;
 import com.ensumble.Model.AdvertisingResponse;
+import com.ensumble.Model.PagingProductsResponse;
 import com.ensumble.Model.ProductsResponse;
+import com.ensumble.Paging.ViewModel.ProductViewModel;
+import com.ensumble.Paging.adapter.ProductsPagingAdapter;
 import com.ensumble.PefManager.PrefUser;
 import com.ensumble.R;
 import com.ensumble.adapter.ProductsAdapter;
@@ -47,6 +53,8 @@ public class TabHomeFragment extends Fragment
     Handler handler;
 
 
+    ProductViewModel viewModel;
+    ProductsPagingAdapter adapter;
 
     public static Fragment getInstance(int position,int categoryId) {
         Bundle bundle = new Bundle();
@@ -63,7 +71,9 @@ public class TabHomeFragment extends Fragment
         View view = inflater.inflate(R.layout.tab_fragment, container, false);
         ButterKnife.bind(this, view);
 
-        getProducts();
+        initProductList();
+
+        //getProducts();
         return view;
     } // function of onCreateView
 
@@ -71,20 +81,30 @@ public class TabHomeFragment extends Fragment
     {
         position = getArguments().getInt("pos");
         categoryId = getArguments().getInt("id");
+
+        initViewModel();
+        getData();
     } // function of getFragmentData
 
+
+    private void initViewModel()
+    {
+        viewModel = ViewModelProviders.of(this).get(ProductViewModel.class);
+
+    } // function of initViewModel
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         getFragmentData();
+
     } // function of onCreate
 
 
-    private void initProductList(List<ProductsResponse.ProductsBean> productList)
+    private void initProductList()
     {
-        ProductsAdapter adapter=new ProductsAdapter(getContext(),productList,"home",getActivity());
+        adapter=new ProductsPagingAdapter(getContext(),"home",getActivity());
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(),2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setHasFixedSize(true);
@@ -92,6 +112,19 @@ public class TabHomeFragment extends Fragment
     } // function of initProductList
 
 
+    private void getData()
+    {
+        viewModel.userId.setValue(PrefUser.getUserId(getContext()));
+        viewModel.categoryId = categoryId;
+        viewModel.itemPagedList.observe(this, new Observer<PagedList<PagingProductsResponse.ProductsBean.DataBean>>() {
+            @Override
+            public void onChanged(@Nullable PagedList<PagingProductsResponse.ProductsBean.DataBean> listBeans) {
+
+                Log.e("QP","Fragment Product Size :  "+listBeans.size());
+                adapter.submitList(listBeans);
+            }
+        });
+    } // function of getData
 
     private void getProducts()
     {
@@ -121,8 +154,8 @@ public class TabHomeFragment extends Fragment
 
                         if(response.getCode().equals("200"))
                         {
-                            if(response.getProducts().size() > 0)
-                          initProductList(response.getProducts());
+                            //if(response.getProducts().size() > 0)
+                          //initProductList(response.getProducts());
                         }
                         else
                         {

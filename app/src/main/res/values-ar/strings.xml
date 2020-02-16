@@ -5,6 +5,7 @@
 
     <array name="nav_drawables_list">
         <item name="home_img">@drawable/ic_home</item>
+        <item name="home_img">@drawable/ic_account_black</item>
         <item name="language_img">@drawable/ic_favorite_menu</item>
         <item name="language_img">@drawable/ic_store_black_24dp</item>
         <item name="language_img">@drawable/ic_shopping_cart</item>
@@ -16,6 +17,7 @@
 
     <string-array name="navigation_menu_items">
         <item name="home">الرئيسية</item>
+        <item name="profile">الحساب</item>
         <item name="favorite">المفضلة</item>
         <item name="companyCategory">المتاجر</item>
         <item name="categories">الفئات</item>
@@ -120,6 +122,7 @@
     <string name="no">لا</string>
 
     <string name="checkOutMessage">تم تسجيل طلبك بنجاح ستيم التواصل معك في أقرب وقت</string>
+    <string name="save">أحفظ</string>
     <!-- toolbar titles -->
     <string name="addProduct">أضف منتج</string>
     <string name="enterRate">أضف تقييم</string>

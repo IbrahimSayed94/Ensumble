@@ -26,6 +26,7 @@ import com.ensumble.view.fragment.AboutFragment;
 import com.ensumble.view.fragment.CategoriesFragment;
 import com.ensumble.view.fragment.HomeFragment;
 import com.ensumble.view.fragment.MyFavoriteFragment;
+import com.ensumble.view.fragment.ProfileFragment;
 import com.ensumble.view.fragment.SellerCategoriesFragment;
 
 import butterknife.BindView;
@@ -85,29 +86,33 @@ public class NavigationMenuAdapter extends RecyclerView.Adapter<NavigationMenuAd
                        context.startActivity(intent);
                         ((Activity)context).finish();
                         break;
-                    case 1: // favorite
+                    case 1: // profile
+                        ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
+                                .replace(R.id.fragment_container, new ProfileFragment()).commit();
+                        break;
+                    case 2: // favorite
                         ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container, new MyFavoriteFragment()).commit();
                         break;
-                    case 2: // stores
+                    case 3: // stores
                         ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container, new SellerCategoriesFragment()).commit();
                         break;
-                    case 3: // categories
+                    case 4: // categories
                         ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container, new CategoriesFragment()).commit();
                         break;
-                    case 4: // about
+                    case 5: // about
                         ((FragmentActivity)context).getSupportFragmentManager().beginTransaction()
                                 .replace(R.id.fragment_container, new AboutFragment()).commit();
                         break;
-                    case 5: // share
+                    case 6: // share
                         shareApp();
                         break;
-                    case 6: // language
+                    case 7: // language
                         changeLanguage();
                         break;
-                    case 7: // logOut
+                    case 8: // logOut
                         logOut();
                         break;
                 }
